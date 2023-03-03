@@ -1,0 +1,27 @@
+.carrosel {
+  object-fit: contain;
+}
+a {
+  text-decoration: none;
+}
+.active-icon {
+  font-size: 40px;
+  color: var(--primary);
+}
+.card {
+  box-shadow: 0.3em 0.3em 0.7em #00000015;
+  transition: all 300ms;
+}
+.card:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  border: var(--primary) 0.2em solid;
+}
+@media screen and (max-width: 767px) {
+  .card {
+    width: 250px;
+  }
+  .active-icon {
+    font-size: 20px;
+  }
+}

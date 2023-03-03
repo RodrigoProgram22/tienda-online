@@ -72,3 +72,12 @@ button:after {
   transition-duration: 400ms;
   transition-property: width, left;
 }
+.btn:hover {
+  color: var(--primary);
+}
+@media screen and (max-width: 500px) {
+  .input {
+    margin-top: 25px;
+    width: 250px;
+  }
+}

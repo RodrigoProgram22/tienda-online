@@ -2,3 +2,6 @@
   --primary: #5e17eb;
   --secondary: #130e0e;
 }
+a {
+  text-decoration: none;
+}
