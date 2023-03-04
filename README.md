@@ -15,18 +15,20 @@ Ejecute `ng build` para compilar el proyecto. Los artefactos de compilación se 
 
 Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta ahora, hemos implementado las siguientes funcionalidades:
 
-- Página de inicio de la tienda, donde se muestran los productos más detacados y algunos en oferta.
-- Barra de navegacion que perimitirá buscar productos al los usuarios
+- Página de inicio de la tienda, donde se muestran los productos más destacados y algunos en oferta.
+- Barra de navegación que permitirá buscar productos al los usuarios.
+- Pie de página que contiene más información sobre los contacto y redes sociales.
 
 Estoy actualmente trabajando en las siguientes funcionalidades:
 
 - Páginas de detalle de productos, donde los usuarios pueden ver la información detallada del producto, incluyendo imágenes, descripciones y precios.
 - Un carrito de compras básico, donde los usuarios pueden agregar productos y ver el total de la compra.
-- Agregar una seccion donde se puedan ver todos los productos.
+- Agregar una sección donde se puedan ver todos los productos.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 
-##Tecnologías utilizadas
+## Tecnologías utilizadas
+
 Este proyecto ha sido desarrollado utilizando las siguientes tecnologías:
 
 - Angular 12: Un framework de JavaScript para la construcción de aplicaciones web.

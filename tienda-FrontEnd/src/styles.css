@@ -5,3 +5,9 @@
 a {
   text-decoration: none;
 }
+.text-primario {
+  color: var(--primary);
+}
+.text-secundario {
+  color: var(--secondary);
+}

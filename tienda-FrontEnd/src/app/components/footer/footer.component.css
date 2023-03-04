@@ -1,0 +1,11 @@
+.icon-footer {
+  font-size: 25px;
+  transition: all 0.5s;
+}
+.icon-footer:hover {
+  transform: scale(1.1);
+}
+.logoFooter {
+  width: 50px;
+  object-fit: contain;
+}
