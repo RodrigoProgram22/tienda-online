@@ -1,12 +1,6 @@
 a {
   text-decoration: none;
 }
-/* * {
-  border: 1px solid red;
-} */
-.textColor {
-  color: var(--primary);
-}
 .img-produc-1 {
   width: auto;
   height: 200px;

@@ -9,6 +9,7 @@ import { OfertasComponent } from './components/seccion/ofertas/ofertas.component
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/seccion/login/login.component';
 import { RegistroComponent } from './components/seccion/registro/registro.component';
+import { VerProductoComponent } from './components/seccion/ver-producto/ver-producto.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RegistroComponent } from './components/seccion/registro/registro.compon
     FooterComponent,
     LoginComponent,
     RegistroComponent,
+    VerProductoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
