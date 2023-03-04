@@ -31,11 +31,17 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto mx-3 mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link fw-bold btn" href="#">Creá tu cuenta</a>
+        <li class="nav-item" *ngIf="router.url !== '/registro'">
+          <a class="nav-link fw-bold btn" href="/registro">Creá tu cuenta</a>
         </li>
         <li class="nav-item" *ngIf="router.url !== '/login'">
           <a class="nav-link fw-bold btn" routerLink="/login">Ingresá</a>
+        </li>
+        <li
+          class="nav-item"
+          *ngIf="router.url == '/login' || router.url == '/registro'"
+        >
+          <a class="nav-link fw-bold btn" routerLink="/header">Inicio</a>
         </li>
       </ul>
     </div>

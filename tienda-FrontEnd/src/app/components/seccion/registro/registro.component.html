@@ -1,0 +1,65 @@
+<section class="container mx-auto my-4">
+  <div class="align-self-center px-5 mx-auto">
+    <div class="container-fluid bg-primario p-2">
+      <h1 class="text-center my-4 fw-bold text-dark">Crear Cuenta</h1>
+      <form
+        class="container mx-auto my-2"
+        #f="ngForm"
+        (ngSubmit)="onRegister()"
+        novalidate
+      >
+        <div class="form__group field mx-auto mb-4">
+          <input
+            placeholder="Name"
+            class="form__field"
+            id="nombre"
+            name="nombre"
+            type="text"
+            required
+          />
+          <label class="form__label fw-bold" for="name">
+            Nombre completo
+          </label>
+        </div>
+        <div class="form__group field mx-auto mb-4">
+          <input
+            placeholder="Name"
+            class="form__field"
+            id="nombreUsuario"
+            name="nombreUsuario"
+            type="text"
+            required
+          />
+          <label class="form__label fw-bold" for="name">
+            Nombre de usuario
+          </label>
+        </div>
+        <div class="form__group field mx-auto mb-4">
+          <input
+            placeholder="Name"
+            class="form__field"
+            id="email"
+            name="email"
+            type="email"
+            required
+          />
+          <label class="form__label fw-bold" for="name">Email</label>
+        </div>
+        <div class="form__group field mx-auto">
+          <input
+            placeholder="Name"
+            class="form__field"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+          <label class="form__label fw-bold" for="password">Contraseña</label>
+        </div>
+        <div class="text-center my-5">
+          <button class="mt-2 enviar fw-bold" type="submit">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
