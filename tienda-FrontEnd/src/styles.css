@@ -5,6 +5,10 @@
 a {
   text-decoration: none;
 }
+a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
 .text-primario {
   color: var(--primary);
 }

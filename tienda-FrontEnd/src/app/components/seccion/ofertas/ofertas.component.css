@@ -19,19 +19,23 @@ a {
 .card {
   width: 500px;
   box-shadow: 0.3em 0.3em 0.7em #2138b8;
-  transition: all 300ms;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .card-2 {
   box-shadow: 0.3em 0.3em 0.7em #21b83a;
-  transition: all 300ms;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .card-3 {
   width: 500px;
-  box-shadow: 0.3em 0.3em 0.7em #b83f21;
-  transition: all 300ms;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .card-ofertas {
   box-shadow: 0.3em 0.3em 0.7em #00000015;
+  border-radius: 10px;
   transition: all 300ms;
 }
 .card-ofertas:hover {

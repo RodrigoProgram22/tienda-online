@@ -1,0 +1,84 @@
+<section class="m-5 p-3" *ngIf="false">
+  <div class="card-ofertas mx-auto">
+    <div class="container text-center p-2">
+      <h2>Hola! Para agregar al carrito, ingresá a tu cuenta</h2>
+    </div>
+    <div class="card-body">
+      <div class="text-center my-4">
+        <a routerLink="/registro">
+          <button class="my-2 crear fw-bold">Creá tu cuenta</button>
+        </a>
+        <div class="p-4">
+          <a class="fw-bold text-center text-primario mb-1" routerLink="/login">
+            Ingresar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="m-5 p-4 carrito">
+    <h5>Tu carrito (0)</h5>
+    <hr />
+    <div class="p-5 m-5" *ngIf="false">
+      <div class="text-center">
+        <p class="fw-bold">Tu Carrito Está Vacío</p>
+        <p>Comienza a llenarlo con nuestros productos</p>
+        <a routerLink="/registro">
+          <button class="my-2 crear fw-bold">Ir de compras</button>
+        </a>
+      </div>
+    </div>
+    <div class="container" *ngIf="true">
+      <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
+        <div class="col text-center">
+          <img
+            src="../../../../assets/img/ofertas/pcgamer.jpg"
+            class="img-fluid img-carrito"
+          />
+        </div>
+        <div class="col text-center">
+          <p class="fw-bold">Pc Armada Gamer Nsx Intel I5</p>
+        </div>
+        <div class="col text-center">
+          <h3 class="fw-bold">$ 181.278</h3>
+        </div>
+      </div>
+      <hr />
+      <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
+        <div class="col text-center">
+          <img
+            src="../../../../assets/img/ofertas/lenovo.jpg"
+            class="img-fluid img-carrito"
+          />
+        </div>
+        <div class="col text-center">
+          <p class="fw-bold">Lenovo Legion i7 16-GB RAM</p>
+        </div>
+        <div class="col text-center">
+          <h3 class="fw-bold">$ 500.278</h3>
+        </div>
+      </div>
+      <hr />
+      <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
+        <div class="col text-center"></div>
+        <div class="col text-end">
+          <p class="fw-bold"></p>
+        </div>
+        <div class="col text-center">
+          <h3 class="fw-bold">Total : $ 681.279</h3>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
+        <div class="col text-center"></div>
+        <div class="col text-end">
+          <p class="fw-bold"></p>
+        </div>
+        <div class="col text-center">
+          <button class="my-2 crear fw-bold">Continuar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

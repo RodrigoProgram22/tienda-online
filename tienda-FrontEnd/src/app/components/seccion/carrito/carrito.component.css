@@ -1,12 +1,22 @@
 a {
   text-decoration: none;
 }
-.imgSombra {
-  height: 390px;
-  object-fit: contain;
-  box-shadow: 0px 18px 25px;
+a:hover {
+  color: var(--primary);
+  text-decoration: none;
 }
-.enviar {
+.card-ofertas {
+  width: 500px;
+  box-shadow: 0.3em 0.3em 0.7em #000000a2;
+  transition: all 300ms;
+  border-radius: 12px;
+}
+.card-ofertas:hover {
+  transform: scale(1.1);
+  border: var(--primary) 0.2em solid;
+  border-radius: 12px;
+}
+.crear {
   --color: var(--primary);
   padding: 0.8em 1.7em;
   background-color: transparent;
@@ -22,8 +32,8 @@ a {
   z-index: 1;
 }
 
-.enviar::before,
-.enviar::after {
+.crear::before,
+.crear::after {
   content: "";
   display: block;
   width: 50px;
@@ -36,60 +46,37 @@ a {
   transition: 1s ease;
 }
 
-.enviar::before {
+.crear::before {
   top: -1em;
   left: -1em;
 }
 
-.enviar::after {
+.crear::after {
   left: calc(100% + 1em);
   top: calc(100% + 1em);
 }
 
-.enviar:hover::before,
-.enviar:hover::after {
+.crear:hover::before,
+.crear:hover::after {
   height: 410px;
   width: 410px;
 }
 
-.enviar:hover {
+.crear:hover {
   color: white;
 }
 
-.enviar:active {
+.crear:active {
   filter: brightness(0.8);
 }
-
-.img-produc-1 {
+.carrito {
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+}
+.img-carrito {
   width: auto;
-  height: 200px;
+  height: 90px;
   object-fit: contain;
-}
-.img-produc-2 {
-  width: auto;
-  height: 160px;
-  object-fit: contain;
-}
-.img-produc-3 {
-  width: auto;
-  height: 160px;
-  object-fit: contain;
-}
-.card {
-  width: 500px;
-  box-shadow: 0.3em 0.3em 0.7em #2138b8;
-  transition: all 300ms;
-}
-
-.card-ofertas {
-  box-shadow: 0.3em 0.3em 0.7em #00000015;
-  border-radius: 10px;
-  transition: all 300ms;
-}
-.card-ofertas:hover {
-  /*  opacity: 0.8; */
-  transform: scale(1.1);
-  border: var(--primary) 0.2em solid;
 }
 @media screen and (max-width: 767px) {
   .card-ofertas {

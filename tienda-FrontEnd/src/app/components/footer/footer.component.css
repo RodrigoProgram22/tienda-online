@@ -9,3 +9,10 @@
   width: 50px;
   object-fit: contain;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}

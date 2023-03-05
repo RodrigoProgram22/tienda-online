@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/seccion/login/login.component';
 import { RegistroComponent } from './components/seccion/registro/registro.component';
 import { VerProductoComponent } from './components/seccion/ver-producto/ver-producto.component';
+import { CarritoComponent } from './components/seccion/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { VerProductoComponent } from './components/seccion/ver-producto/ver-prod
     LoginComponent,
     RegistroComponent,
     VerProductoComponent,
+    CarritoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
