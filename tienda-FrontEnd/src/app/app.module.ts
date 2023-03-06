@@ -12,6 +12,9 @@ import { RegistroComponent } from './components/seccion/registro/registro.compon
 import { VerProductoComponent } from './components/seccion/ver-producto/ver-producto.component';
 import { CarritoComponent } from './components/seccion/carrito/carrito.component';
 import { ProductosComponent } from './components/seccion/productos/productos.component';
+import { VenderComponent } from './components/seccion/mi-panel/vender/vender.component';
+import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-perfil.component';
+import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { ProductosComponent } from './components/seccion/productos/productos.com
     VerProductoComponent,
     CarritoComponent,
     ProductosComponent,
+    VenderComponent,
+    MiPerfilComponent,
+    MisProductosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

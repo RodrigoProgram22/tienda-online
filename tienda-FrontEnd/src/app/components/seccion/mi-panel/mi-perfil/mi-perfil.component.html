@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action bg-primario text-light fw-bold"
+        >
+          Panel de Control
+        </a>
+        <a
+          routerLink="/mi-perfil"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mi-perfil' }"
+          >Mi Perfil</a
+        >
+        <a
+          routerLink="/vender"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/vender' }"
+          >Vender</a
+        >
+        <a
+          routerLink="/mis-productos"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mis-productos' }"
+        >
+          Mis Productos
+        </a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h3 class="my-3">Mi Perfil</h3>
+      <hr />
+      <div class="row">
+        <div class="col-md-6">
+          <p><strong>Nombre:</strong> Juan Pérez</p>
+          <p><strong>Email:</strong> juan.perez@gmail.com</p>
+          <p><strong>Teléfono:</strong> 1234567890</p>
+        </div>
+        <div class="col-md-6">
+          <p><strong>País:</strong> México</p>
+          <p><strong>Estado:</strong> Jalisco</p>
+          <p><strong>Ciudad:</strong> Guadalajara</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

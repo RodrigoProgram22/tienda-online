@@ -1,0 +1,87 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action bg-primario text-light fw-bold"
+        >
+          Panel de Control
+        </a>
+        <a
+          routerLink="/mi-perfil"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mi-perfil' }"
+          >Mi Perfil</a
+        >
+        <a
+          routerLink="/vender"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/vender' }"
+          >Vender</a
+        >
+        <a
+          routerLink="/mis-productos"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mis-productos' }"
+        >
+          Mis Productos
+        </a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h3 class="my-3">Vender Producto</h3>
+      <hr />
+      <form>
+        <div class="my-4">
+          <label for="nombreProducto" class="fw-bold">Nombre del Producto</label
+          ><br />
+          <input
+            type="text"
+            class="input"
+            id="nombreProducto"
+            placeholder="Ingrese el nombre del producto"
+          />
+        </div>
+        <div class="form-group my-4">
+          <label for="etiquetasProducto" class="fw-bold"
+            >Etiquetas del Producto</label
+          ><br />
+          <input
+            type="text"
+            class="input"
+            id="etiquetasProducto"
+            placeholder="Ingrese las etiquetas del producto (separadas por comas)"
+          />
+        </div>
+        <div class="form-group my-4">
+          <label for="descripcionProducto" class="fw-bold"
+            >Descripción del Producto</label
+          ><br />
+          <textarea
+            class="input"
+            id="descripcionProducto"
+            rows="3"
+            placeholder="Ingrese una descripción del producto"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="precioProducto" class="fw-bold">Precio del Producto</label
+          ><br />
+          <input
+            type="number"
+            class="input"
+            id="precioProducto"
+            placeholder="Ingrese el precio del producto"
+          />
+        </div>
+        <div class="form-group my-4">
+          <label for="imagenProducto" class="fw-bold">
+            Imagen del Producto :
+          </label>
+          <input type="file" class="form-control-file" id="imagenProducto" />
+        </div>
+        <button type="submit" class="enviar fw-bold">Vender Producto</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action bg-primario text-light fw-bold"
+        >
+          Panel de Control
+        </a>
+        <a
+          routerLink="/mi-perfil"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mi-perfil' }"
+          >Mi Perfil</a
+        >
+        <a
+          routerLink="/vender"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/vender' }"
+          >Vender</a
+        >
+        <a
+          routerLink="/mis-productos"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mis-productos' }"
+        >
+          Mis Productos
+        </a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h3 class="my-3">Mis Productos</h3>
+      <hr />
+
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="https://via.placeholder.com/150x150.png"
+            alt="Producto 1"
+            class="img-thumbnail"
+          />
+          <p>Producto 1</p>
+          <p>$100</p>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="https://via.placeholder.com/150x150.png"
+            alt="Producto 2"
+            class="img-thumbnail"
+          />
+          <p>Producto 2</p>
+          <p>$200</p>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="https://via.placeholder.com/150x150.png"
+            alt="Producto 3"
+            class="img-thumbnail"
+          />
+          <p>Producto 3</p>
+          <p>$300</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

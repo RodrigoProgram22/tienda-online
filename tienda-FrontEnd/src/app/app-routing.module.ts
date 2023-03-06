@@ -6,6 +6,9 @@ import { RegistroComponent } from './components/seccion/registro/registro.compon
 import { ProductosComponent } from './components/seccion/productos/productos.component';
 import { VerProductoComponent } from './components/seccion/ver-producto/ver-producto.component';
 import { CarritoComponent } from './components/seccion/carrito/carrito.component';
+import { VenderComponent } from './components/seccion/mi-panel/vender/vender.component';
+import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-perfil.component';
+import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: '', redirectTo: '/header', pathMatch: 'full' },
@@ -14,6 +17,9 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent },
   { path: 'ver-producto', component: VerProductoComponent },
   { path: 'carrito', component: CarritoComponent },
+  { path: 'mi-perfil', component: MiPerfilComponent },
+  { path: 'vender', component: VenderComponent },
+  { path: 'mis-productos', component: MisProductosComponent },
 ];
 
 @NgModule({
