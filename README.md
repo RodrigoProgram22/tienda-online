@@ -18,12 +18,16 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Página de inicio de la tienda, donde se muestran los productos más destacados y algunos en oferta.
 - Barra de navegación que permitirá buscar productos al los usuarios.
 - Pie de página que contiene más información sobre los contacto y redes sociales.
-
-Estoy actualmente trabajando en las siguientes funcionalidades:
-
 - Páginas de detalle de productos, donde los usuarios pueden ver la información detallada del producto, incluyendo imágenes, descripciones y precios.
 - Un carrito de compras básico, donde los usuarios pueden agregar productos y ver el total de la compra.
 - Agregar una sección donde se puedan ver todos los productos.
+- Sección para ver el perfil del usuario.
+- Agregar un apartado para vender un productos.
+- Página para ver productos en venta.
+
+Estoy actualmente trabajando en las siguientes funcionalidades:
+
+- Página de Ayuda, para responder algunas preguntas sobre la página.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 

@@ -26,7 +26,6 @@ a:hover {
   color: var(--color);
   z-index: 1;
 }
-
 .ver-produc::before,
 .ver-produc::after {
   content: "";
@@ -40,27 +39,32 @@ a:hover {
   background-color: var(--color);
   transition: 1s ease;
 }
-
 .ver-produc::before {
   top: -1em;
   left: -1em;
 }
-
 .ver-produc::after {
   left: calc(100% + 1em);
   top: calc(100% + 1em);
 }
-
 .ver-produc:hover::before,
 .ver-produc:hover::after {
   height: 410px;
   width: 410px;
 }
-
 .ver-produc:hover {
   color: white;
 }
-
 .ver-produc:active {
   filter: brightness(0.8);
+}
+@media screen and (max-width: 995px) {
+  .card {
+    width: 120px;
+  }
+}
+@media screen and (max-width: 769px) {
+  .card {
+    width: 230px;
+  }
 }
