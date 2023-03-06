@@ -11,6 +11,7 @@ import { LoginComponent } from './components/seccion/login/login.component';
 import { RegistroComponent } from './components/seccion/registro/registro.component';
 import { VerProductoComponent } from './components/seccion/ver-producto/ver-producto.component';
 import { CarritoComponent } from './components/seccion/carrito/carrito.component';
+import { ProductosComponent } from './components/seccion/productos/productos.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CarritoComponent } from './components/seccion/carrito/carrito.component
     RegistroComponent,
     VerProductoComponent,
     CarritoComponent,
+    ProductosComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

@@ -1,3 +1,10 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: var(--primary);
+  text-decoration: none;
+}
 .icon-footer {
   font-size: 25px;
   transition: all 0.5s;
@@ -8,11 +15,4 @@
 .logoFooter {
   width: 50px;
   object-fit: contain;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  color: var(--primary);
-  text-decoration: none;
 }

@@ -8,7 +8,7 @@ a {
 }
 .enviar {
   --color: var(--primary);
-  padding: 0.8em 1.7em;
+  padding: 9px 10px;
   background-color: transparent;
   border-radius: 0.3em;
   position: relative;

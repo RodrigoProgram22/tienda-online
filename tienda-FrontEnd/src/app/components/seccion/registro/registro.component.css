@@ -69,9 +69,9 @@
   box-shadow: none;
 }
 /* boton crear cuenta */
-.enviar {
+.crear {
   --color: var(--primary);
-  padding: 0.8em 1.7em;
+  padding: 9px 10px;
   background-color: transparent;
   border-radius: 0.3em;
   position: relative;
@@ -85,8 +85,8 @@
   z-index: 1;
 }
 
-.enviar::before,
-.enviar::after {
+.crear::before,
+.crear::after {
   content: "";
   display: block;
   width: 50px;
@@ -99,26 +99,26 @@
   transition: 1s ease;
 }
 
-.enviar::before {
+.crear::before {
   top: -1em;
   left: -1em;
 }
 
-.enviar::after {
+.crear::after {
   left: calc(100% + 1em);
   top: calc(100% + 1em);
 }
 
-.enviar:hover::before,
-.enviar:hover::after {
+.crear:hover::before,
+.crear:hover::after {
   height: 410px;
   width: 410px;
 }
 
-.enviar:hover {
+.crear:hover {
   color: white;
 }
 
-.enviar:active {
+.crear:active {
   filter: brightness(0.8);
 }

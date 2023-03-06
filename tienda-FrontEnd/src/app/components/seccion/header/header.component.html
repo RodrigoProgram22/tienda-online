@@ -53,26 +53,15 @@
       <div class="col text-center">
         <div class="card mx-auto">
           <div class="container text-center">
-            <a href="#">
-              <i class="bi bi-cash-stack active-icon"></i>
-            </a>
-          </div>
-          <div class="card-body">
-            <h5>Vender</h5>
-            <a class="text-primary fw-bold">Vende lo que no necesites</a>
-          </div>
-        </div>
-      </div>
-      <div class="col text-center">
-        <div class="card mx-auto">
-          <div class="container text-center">
-            <a href="#">
-              <i class="bi bi-joystick active-icon"></i>
+            <a routerLink="/productos">
+              <i class="bi bi-laptop active-icon"></i>
             </a>
           </div>
           <div class="card-body">
             <h5>Ver Productos</h5>
-            <a class="text-primary fw-bold">Explora categorías</a>
+            <a routerLink="/productos" class="text-primary fw-bold"
+              >Explora categorías</a
+            >
           </div>
         </div>
       </div>
@@ -87,6 +76,21 @@
             <h5>Mi Carrito</h5>
             <a routerLink="/carrito" class="text-primary fw-bold"
               >Mira tu lista de compra</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col text-center">
+        <div class="card mx-auto">
+          <div class="container text-center">
+            <a routerLink="/carrito">
+              <i class="bi bi-cash-stack active-icon"></i>
+            </a>
+          </div>
+          <div class="card-body">
+            <h5>Vender</h5>
+            <a routerLink="/carrito" class="text-primary fw-bold"
+              >Vende lo que no necesites</a
             >
           </div>
         </div>
