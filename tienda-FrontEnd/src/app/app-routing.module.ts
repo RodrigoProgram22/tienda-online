@@ -9,6 +9,7 @@ import { CarritoComponent } from './components/seccion/carrito/carrito.component
 import { VenderComponent } from './components/seccion/mi-panel/vender/vender.component';
 import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-perfil.component';
 import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
+import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: '', redirectTo: '/header', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent },
   { path: 'mi-perfil', component: MiPerfilComponent },
   { path: 'vender', component: VenderComponent },
+  { path: 'ayuda', component: AyudaComponent },
   { path: 'mis-productos', component: MisProductosComponent },
 ];
 

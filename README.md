@@ -24,10 +24,11 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Sección para ver el perfil del usuario.
 - Agregar un apartado para vender un productos.
 - Página para ver productos en venta.
+- Página de Ayuda provisional, para responder algunas preguntas sobre la página.
 
 Estoy actualmente trabajando en las siguientes funcionalidades:
 
-- Página de Ayuda, para responder algunas preguntas sobre la página.
+- Empezar a crear el diseño de la BBDD y la logica del BackEnd.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 
