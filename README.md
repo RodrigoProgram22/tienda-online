@@ -25,10 +25,13 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Agregar un apartado para vender un productos.
 - Página para ver productos en venta.
 - Página de Ayuda provisional, para responder algunas preguntas sobre la página.
+- Crear Diagrama de clases para la lógica del BackEnd.
 
 Estoy actualmente trabajando en las siguientes funcionalidades:
 
-- Empezar a crear el diseño de la BBDD y la logica del BackEnd.
+- Crear el proyecto del BackEnd utilizando Spring Initializr.
+- Crear la BBDD y conectar con el BackEnd.
+- Crear los paquetes y clases necesarios para el proyecto.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 
@@ -41,6 +44,7 @@ Este proyecto ha sido desarrollado utilizando las siguientes tecnologías:
 
 También se utilizaron las siguientes bibliotecas y herramientas:
 
+- Diagrams.net: Es una herramienta en línea gratuita y de código abierto para crear diagramas, como diagramas de flujo, diagramas de red, diagramas de clases y muchos otros tipos de diagramas.
 - Figma: Una herramienta de diseño de interfaz de usuario que se utiliza para crear prototipos, wireframes y diseños para aplicaciones web y móviles.
 - Visual Studio Code: Un editor de código fuente desarrollado por Microsoft para Windows, Linux y macOS.
 
