@@ -27,4 +27,8 @@ public class EUsuario {
     private String email;
     private String telefono;
     private String ubicacion; 
+
+    public Object getContrasena() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

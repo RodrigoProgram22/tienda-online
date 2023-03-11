@@ -23,7 +23,7 @@ public class EProducto {
     @JoinColumn(name = "id_proveedor")
     private EUsuario proveedor;
   
-    private String nombre_producto;
+    private String nombre;
     private String etiquetas;
     private String descripcion;
     private Long precio;
