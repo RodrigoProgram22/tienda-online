@@ -13,5 +13,7 @@ public interface IUsuarioService {
     
     public boolean autenticar(String correo, String contrasena);
     
+    public boolean verificarEmailDuplicado(String email);
+    
     public void eliminarUsuario(Long id);
 }

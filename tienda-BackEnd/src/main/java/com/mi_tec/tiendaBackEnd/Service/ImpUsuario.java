@@ -34,7 +34,11 @@ public class ImpUsuario implements IUsuarioService {
         Optional<EUsuario> usuario = UsuarioRepo.findByEmail(correo);
         return usuario.isPresent() && usuario.get().getPassword().equals(contrasena);
     }
-
+    @Override
+    public boolean verificarEmailDuplicado(String email) {
+        Optional<EUsuario> usuarioExistente = UsuarioRepo.findByEmail(email);
+        return usuarioExistente.isPresent();
+    }
     @Override
     public void eliminarUsuario(Long id) {
          UsuarioRepo.deleteById(id);

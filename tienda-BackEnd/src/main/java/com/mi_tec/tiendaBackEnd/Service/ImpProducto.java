@@ -21,8 +21,8 @@ public class ImpProducto implements IProductoService {
     }
 
     @Override
-    public Optional<EProducto> obtenerProductoPorId(Long id) {
-        return productoRepo.findById(id);
+    public EProducto obtenerProductoPorId(Long id) {
+        return productoRepo.findById(id).orElse(null);
     }
 
     @Override
