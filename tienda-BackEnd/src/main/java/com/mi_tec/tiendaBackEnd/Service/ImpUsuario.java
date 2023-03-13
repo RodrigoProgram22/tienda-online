@@ -32,7 +32,7 @@ public class ImpUsuario implements IUsuarioService {
     @Override
     public boolean autenticar(String correo, String contrasena) {
         Optional<EUsuario> usuario = UsuarioRepo.findByEmail(correo);
-        return usuario.isPresent() && usuario.get().getContrasena().equals(contrasena);
+        return usuario.isPresent() && usuario.get().getPassword().equals(contrasena);
     }
 
     @Override
