@@ -28,10 +28,11 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Crear Diagrama de clases para la lógica del BackEnd.
 - Crear el proyecto del BackEnd utilizando Spring Initializr.
 - Crear la BBDD y conectar con el BackEnd.
+- Crear los paquetes y clases necesarios para el proyecto.(BackEnd)
 
 Estoy actualmente trabajando en las siguientes funcionalidades:
 
-- Crear los paquetes y clases necesarios para el proyecto.(BackEnd)
+- Conectar el FrontEnd con el BackEnd.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 
