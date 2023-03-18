@@ -2,6 +2,7 @@ package com.mi_tec.tiendaBackEnd.Controller;
 
 import com.mi_tec.tiendaBackEnd.Entity.EUsuario;
 import com.mi_tec.tiendaBackEnd.InterfaceS.IUsuarioService;
+import com.mi_tec.tiendaBackEnd.Service.ImpCarrito;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,9 @@ public class UsuarioController {
     @Autowired
     IUsuarioService iUserS;
     
+    @Autowired
+    ImpCarrito carritoService;
+    
     @GetMapping("/usuarios")
     public List<EUsuario> verUsuarios() {
         return iUserS.obtenerUsuarios();
@@ -32,7 +36,8 @@ public class UsuarioController {
         if (iUserS.verificarEmailDuplicado(usuario.getEmail())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El correo ya está en uso");
         }
-        iUserS.guardarUsuario(usuario);
+         EUsuario nuevoUsuario = iUserS.guardarUsuario(usuario);
+        carritoService.crearCarrito(nuevoUsuario); // Crear un carrito para el nuevo usuario
         return ResponseEntity.ok("Usuario creado correctamente");
     }
     @GetMapping("/usuario/buscar/{id}")

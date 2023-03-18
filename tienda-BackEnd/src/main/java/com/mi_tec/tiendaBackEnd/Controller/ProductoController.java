@@ -1,7 +1,9 @@
 package com.mi_tec.tiendaBackEnd.Controller;
 
 import com.mi_tec.tiendaBackEnd.Entity.EProducto;
+import com.mi_tec.tiendaBackEnd.Entity.EUsuario;
 import com.mi_tec.tiendaBackEnd.InterfaceS.IProductoService;
+import com.mi_tec.tiendaBackEnd.InterfaceS.IUsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductoController {
     @Autowired
     IProductoService iProducS;
+    @Autowired
+    IUsuarioService iUserS;
     
     @GetMapping("/productos")
     public List<EProducto> verProductos() {
@@ -32,7 +37,9 @@ public class ProductoController {
         return iProducS.obtenerProductosPorNombre(nombre);
     }
     @PostMapping("/producto/crear")
-    public String crearProduc(@RequestBody EProducto produc) {
+    public String crearProduc(@RequestBody EProducto produc,@RequestParam Long idProveedor) {
+        EUsuario proveedor = iUserS.obtenerUsuarioPorId(idProveedor);
+        produc.setProveedor(proveedor);
         iProducS.crearProducto(produc);
         return "Productos, se creo correctamente.";
     }

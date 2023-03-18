@@ -1,5 +1,6 @@
 package com.mi_tec.tiendaBackEnd.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ public class EProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_producto;
     
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_proveedor")
     private EUsuario proveedor;

@@ -1,5 +1,6 @@
 package com.mi_tec.tiendaBackEnd.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.Table;
 import java.util.List;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter @Setter
@@ -27,5 +29,13 @@ public class EUsuario {
     private String email;
     private String telefono;
     private String ubicacion; 
-
+    
+    // Nueva relación uno a uno con la entidad ECarrito
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private ECarrito carrito;
+    
+    // Constructor vacío
+    public EUsuario() {
+    }
 }
