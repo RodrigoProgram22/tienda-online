@@ -53,11 +53,6 @@ public class ImpProducto implements IProductoService {
 
     @Override
     public void eliminarProducto(Long id) {
-        Optional<EProducto> optionalProducto = productoRepo.findById(id);
-        if (optionalProducto.isPresent()) {
-            productoRepo.delete(optionalProducto.get());
-        } else {
-            throw new NoSuchElementException("No se encontró el producto con el id " + id);
-        }
+      productoRepo.deleteById(id);
     }
 }

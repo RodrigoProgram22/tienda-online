@@ -33,14 +33,14 @@
       <hr />
       <div class="row">
         <div class="col-md-6">
-          <p><strong>Nombre:</strong> Romano Rodrigo</p>
-          <p><strong>Email:</strong> rodri22@gmail.com</p>
-          <p><strong>Teléfono:</strong> 1234567890</p>
+          <p><strong>Nombre Usuario:</strong> {{ usuario.nombre_usuario }}</p>
+          <p><strong>Nombre Completo:</strong> {{ usuario.nombre_apellido }}</p>
+          <p><strong>Email:</strong> {{ usuario.email }}</p>
         </div>
         <div class="col-md-6">
           <p><strong>País:</strong> Argentina</p>
-          <p><strong>Estado:</strong> Tucumán</p>
-          <p><strong>Ciudad:</strong> Concepción</p>
+          <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+          <p><strong>Ubicación:</strong> {{ usuario.ubicacion }}</p>
         </div>
       </div>
     </div>

@@ -16,6 +16,7 @@ import { VenderComponent } from './components/seccion/mi-panel/vender/vender.com
 import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-perfil.component';
 import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
     MisProductosComponent,
     AyudaComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

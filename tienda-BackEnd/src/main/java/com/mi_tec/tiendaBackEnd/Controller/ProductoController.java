@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProductoController {
     @Autowired
     IProductoService iProducS;
@@ -59,7 +59,7 @@ public class ProductoController {
 
     @DeleteMapping("/producto/borrar/{id}")
     public String borrarUser(@PathVariable Long id) {
-        iProducS.obtenerProductoPorId(id);
+        iProducS.eliminarProducto(id);
         return "Producto, Se elimino correctamente";
     }
 }
