@@ -28,19 +28,21 @@ public class ImpUsuario implements IUsuarioService {
     public EUsuario guardarUsuario(EUsuario usuario) {
       return UsuarioRepo.save(usuario);
     }
-
-    @Override
-    public boolean autenticar(String correo, String contrasena) {
-        Optional<EUsuario> usuario = UsuarioRepo.findByEmail(correo);
-        return usuario.isPresent() && usuario.get().getPassword().equals(contrasena);
-    }
-    @Override
-    public boolean verificarEmailDuplicado(String email) {
-        Optional<EUsuario> usuarioExistente = UsuarioRepo.findByEmail(email);
-        return usuarioExistente.isPresent();
-    }
+    
     @Override
     public void eliminarUsuario(Long id) {
          UsuarioRepo.deleteById(id);
+    } 
+     @Override
+    public Optional<EUsuario> getByNombreUsuario(String nombreUsuario){
+        return UsuarioRepo.findByNombreUsuario(nombreUsuario);
+    }
+     @Override
+    public boolean existsByNombreUsuario(String nombreUsuario){
+        return UsuarioRepo.existsByNombreUsuario(nombreUsuario);
+    }
+    
+    public boolean existsByEmail(String email){
+        return UsuarioRepo.existsByEmail(email);
     }
 }

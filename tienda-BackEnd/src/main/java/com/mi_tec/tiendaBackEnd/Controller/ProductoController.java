@@ -6,6 +6,7 @@ import com.mi_tec.tiendaBackEnd.InterfaceS.IProductoService;
 import com.mi_tec.tiendaBackEnd.InterfaceS.IUsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +37,7 @@ public class ProductoController {
     public List<EProducto> obtenerProductosPorNombre(@PathVariable String nombre) {
         return iProducS.obtenerProductosPorNombre(nombre);
     }
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping("/producto/crear")
     public String crearProduc(@RequestBody EProducto produc,@RequestParam Long idProveedor) {
         EUsuario proveedor = iUserS.obtenerUsuarioPorId(idProveedor);
@@ -43,6 +45,7 @@ public class ProductoController {
         iProducS.crearProducto(produc);
         return "Productos, se creo correctamente.";
     }
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PutMapping("/producto/editar/{id}")
     public EProducto actualizarProducto(@PathVariable Long id, @RequestBody EProducto productoActualizado) {
     EProducto producto = iProducS.obtenerProductoPorId(id);
@@ -56,7 +59,7 @@ public class ProductoController {
     
     return iProducS.crearProducto(producto);
     }
-
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @DeleteMapping("/producto/borrar/{id}")
     public String borrarUser(@PathVariable Long id) {
         iProducS.eliminarProducto(id);

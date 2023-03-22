@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class CarritoController {
     private ICarritoService carritoService;
     
     // Endpoint para agregar un producto al carrito
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping("/{idCarrito}/productos/{idProducto}")
     public ResponseEntity<?> agregarProducto(@PathVariable Long idCarrito, @PathVariable Long idProducto) {
         try {
@@ -35,6 +37,7 @@ public class CarritoController {
     }
     
     // Endpoint para eliminar un producto del carrito
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @DeleteMapping("/{idCarrito}/productos/{idProducto}")
     public ResponseEntity<?> eliminarProducto(@PathVariable Long idCarrito, @PathVariable Long idProducto) {
         try {
@@ -44,7 +47,7 @@ public class CarritoController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar producto del carrito");
         }
     }
-    
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/usuario/productos/{idUsuario}")
     public ResponseEntity<List<EProducto>> getProductosDelCarritoByUsuario(@PathVariable Long idUsuario) {
         ECarrito carrito = carritoService.getCarritoByUsuario(idUsuario);
