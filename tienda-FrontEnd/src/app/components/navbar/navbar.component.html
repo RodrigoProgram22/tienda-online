@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="text-startss">
-      <a routerLink="/header">
+      <a routerLink="/inicio">
         <img src="../../../assets/logo.png" class="img-fluid img-logo" />
       </a>
     </div>
@@ -31,11 +31,6 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto mx-3 mb-2 mb-lg-0 align-items-center">
-        <li class="nav-item mx-2" *ngIf="router.url !== '/carrito'">
-          <a routerLink="/carrito">
-            <i class="bi bi-cart3 text-primario" style="font-size: 20px"></i>
-          </a>
-        </li>
         <li class="nav-item" *ngIf="router.url !== '/registro'">
           <a class="nav-link fw-bold btn" routerLink="/registro">
             Creá tu cuenta
@@ -44,8 +39,21 @@
         <li class="nav-item" *ngIf="router.url !== '/login'">
           <a class="nav-link fw-bold btn" routerLink="/login">Ingresá</a>
         </li>
-        <li class="nav-item" *ngIf="router.url !== '/header'">
-          <a class="nav-link fw-bold btn" routerLink="/header">Inicio</a>
+        <li class="nav-item" *ngIf="router.url !== '/inicio'">
+          <a class="nav-link fw-bold btn" routerLink="/inicio">Inicio</a>
+        </li>
+        <li class="nav-item mx-2" *ngIf="router.url !== '/carrito'">
+          <a routerLink="/carrito">
+            <i class="bi bi-cart3 text-primario" style="font-size: 20px"></i>
+          </a>
+        </li>
+        <li class="nav-item mx-2" *ngIf="router.url !== '/mi-perfil'">
+          <a routerLink="/mi-perfil">
+            <i
+              class="bi bi-person-lines-fill text-primario"
+              style="font-size: 20px"
+            ></i>
+          </a>
         </li>
       </ul>
     </div>

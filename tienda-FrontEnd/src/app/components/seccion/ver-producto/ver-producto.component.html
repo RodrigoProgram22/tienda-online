@@ -8,29 +8,31 @@
         />
       </div>
       <div class="col-4 detalles">
-        <h2 class="fw-bold text-center text-md-start">Xbox Series X</h2>
-        <p class="fw-bold">Vendedor: Microsoft</p>
-        <p class="text-primario fw-bold">
-          Etiquetas: Videojuegos, Juegos, etc.
-        </p>
-        <p class="fw-bold">Precio: $260,785</p>
+        <h2 class="fw-bold text-center text-md-start">{{ produc.nombre }}</h2>
+        <p class="text-primario fw-bold">Etiquetas: {{ produc.etiquetas }}</p>
+        <p class="fw-bold">${{ produc.precio }}</p>
         <p class="fw-bold">Envió Gratis</p>
+        <p class="fw-bold">Cantidad: {{ produc.cantidad }}</p>
         <p class="fw-bold">Publicado el 10 de Diciembre.</p>
-        <p>
-          Descripcion. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Adipisci aspernatur quis architecto, ex incidunt sapiente. Ut illo
-          nobis non illum in, reprehenderit saepe dolorem debitis explicabo
-          porro possimus maxime vitae? Quos iure odit adipisci eius laboriosam
-          vero nisi quod consequuntur error vitae, ab blanditiis cum eligendi et
-          assumenda expedita exercitationem tempore totam, doloribus ullam
-          consequatur accusamus, aliquid at aut. Aliquid!
-        </p>
+        <p class="fw-bold">Descripcion: {{ produc.descripcion }}</p>
         <div class="text-start my-5">
-          <button class="mt-2 enviar fw-bold" type="submit">Comprar</button>
-          <button class="mt-2 mx-3 enviar fw-bold" type="submit">
+          <button class="mt-2 enviar fw-bold" type="submit" (click)="comprar()">
+            Comprar
+          </button>
+          <button
+            class="mt-2 mx-3 enviar fw-bold"
+            type="submit"
+            (click)="agregarCarrito()"
+          >
             Agregar al Carrito
           </button>
         </div>
+        <p class="fw-bold text-success" *ngIf="msjCarrito">
+          Se agregó correctamente
+        </p>
+        <!-- <p class="fw-bold text-danger" *ngIf="!msjCarrito">
+          Error al crear el carrito.
+        </p> -->
       </div>
     </div>
   </div>

@@ -13,11 +13,19 @@ export class CarritoComponent implements OnInit {
   constructor(private carritoService: CarritoService) {}
 
   ngOnInit(): void {
+    this.cargarProductos();
+  }
+  cargarProductos() {
     this.carritoService.getProductosDelCarrito(1).subscribe((data) => {
       this.productos = data;
       for (let i = 0; i < this.productos.length; i++) {
         this.sumatotal += this.productos[i].precio;
       }
+    });
+  }
+  eliminar(id: any) {
+    this.carritoService.eliminarProducto(1, id).subscribe((data) => {
+      this.cargarProductos();
     });
   }
 }

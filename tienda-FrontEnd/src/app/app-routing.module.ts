@@ -11,12 +11,12 @@ import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-pe
 import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
 const routes: Routes = [
-  { path: 'header', component: HeaderComponent },
-  { path: '', redirectTo: '/header', pathMatch: 'full' },
+  { path: 'inicio', component: HeaderComponent },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'productos', component: ProductosComponent },
-  { path: 'ver-producto', component: VerProductoComponent },
+  { path: 'ver-producto/:id', component: VerProductoComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'mi-perfil', component: MiPerfilComponent },
   { path: 'vender', component: VenderComponent },

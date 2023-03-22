@@ -19,7 +19,7 @@
 </section>
 <section *ngIf="true">
   <div class="m-1 p-1 m-md-5 p-md-5 carrito">
-    <h5>Tu carrito (0)</h5>
+    <h5>Tu carrito ({{ productos.length }})</h5>
     <hr />
     <div class="p-5 m-5" *ngIf="false">
       <div class="text-center">
@@ -48,6 +48,11 @@
         </div>
         <div class="col text-center">
           <h3>$ {{ carrito.precio }}</h3>
+          <i
+            (click)="eliminar(carrito.id_producto)"
+            class="bi bi-x-circle text-primario"
+            style="font-size: 30px; cursor: pointer"
+          ></i>
         </div>
       </div>
       <hr />

@@ -11,10 +11,9 @@ export class MisProductosComponent implements OnInit {
   constructor(public router: Router, private usuarioService: UsuariosService) {}
   usuario: any = {};
   ngOnInit(): void {
-    const id = 2; // el ID del usuario que deseas buscar
+    const id = 1; // el ID del usuario que deseas buscar
     this.usuarioService.buscarUsuario(id).subscribe((usuario) => {
       this.usuario = usuario;
     });
-    console.log(this.usuario.productos);
   }
 }

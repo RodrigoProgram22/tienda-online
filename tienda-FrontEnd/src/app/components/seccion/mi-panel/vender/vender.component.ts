@@ -27,7 +27,7 @@ export class VenderComponent implements OnInit {
       'https://via.placeholder.com/150x150.png',
       cantidad
     );
-    this.producService.crearProducto(producto, 2).subscribe(
+    this.producService.crearProducto(producto, 1).subscribe(
       (respuesta) => console.log('Producto creado'),
       (error) => console.error(error)
     );
