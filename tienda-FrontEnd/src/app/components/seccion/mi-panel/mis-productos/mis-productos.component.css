@@ -5,6 +5,12 @@
   background-color: #9e6eff;
   color: white;
 }
+.card {
+  /* width: 500px; */
+  box-shadow: 0 5px 10px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
 .input {
   width: 100%;
   line-height: 28px;
@@ -16,57 +22,51 @@
   color: #0d0c22;
   transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-/* boton enviar para datos */
-.enviar {
-  --color: var(--primary);
-  padding: 9px 10px;
-  background-color: transparent;
-  border-radius: 0.3em;
-  position: relative;
-  overflow: hidden;
+/* Boton de Editar */
+button {
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.5s;
-  font-weight: 400;
-  font-size: 17px;
-  border: 1px solid;
-  color: var(--color);
-  z-index: 1;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
 }
 
-.enviar::before,
-.enviar::after {
+button:focus,
+button:hover {
+  color: var(--primary);
+}
+
+button:focus:after,
+button:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+button:after {
   content: "";
-  display: block;
-  width: 50px;
-  height: 50px;
-  transform: translate(-50%, -50%);
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
   position: absolute;
-  border-radius: 50%;
-  z-index: -1;
-  background-color: var(--color);
-  transition: 1s ease;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
 }
-
-.enviar::before {
-  top: -1em;
-  left: -1em;
+@media screen and (max-width: 995px) {
+  .card {
+    width: 120px;
+  }
 }
-
-.enviar::after {
-  left: calc(100% + 1em);
-  top: calc(100% + 1em);
-}
-
-.enviar:hover::before,
-.enviar:hover::after {
-  height: 410px;
-  width: 410px;
-}
-
-.enviar:hover {
-  color: white;
-}
-
-.enviar:active {
-  filter: brightness(0.8);
+@media screen and (max-width: 769px) {
+  .card {
+    width: 230px;
+  }
 }

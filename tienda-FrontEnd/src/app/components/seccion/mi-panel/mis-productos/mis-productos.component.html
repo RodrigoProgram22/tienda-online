@@ -29,17 +29,42 @@
       </div>
     </div>
     <div class="col-md-9">
-      <h3 class="my-3">Mis Productos</h3>
+      <h3 class="my-3 text-start">Mis Productos</h3>
+      <button class="text-end" (click)="editarProducto()">
+        Editar Productos
+      </button>
       <hr />
-      <div class="row row-cols-1 row-cols-md-4 g-4 align-items-center">
-        <div class="col" *ngFor="let producto of usuario.productos">
-          <img
-            src="https://via.placeholder.com/150x150.png"
-            alt="Producto 1"
-            class="img-fluid"
-          />
-          <p>{{ producto.nombre }}</p>
-          <p>${{ producto.precio }}</p>
+      <div class="row">
+        <!-- Productos como tarjetas en columnas de 4 -->
+        <div class="col-md-3 my-2" *ngFor="let producto of productos">
+          <div class="card mx-auto">
+            <a routerLink="/ver-producto/{{ producto.id_producto }}">
+              <img
+                class="card-img-top"
+                src="https://via.placeholder.com/250x250"
+                alt="Card image cap"
+              />
+            </a>
+            <div class="card-body">
+              <p class="card-title">{{ producto.nombre }}</p>
+              <p class="card-text">${{ producto.precio }}</p>
+              <div *ngIf="editBoolean" class="container-fluid">
+                <div class="text-center">
+                  <a routerLink="/ver-producto/{{ producto.id_producto }}"
+                    ><i
+                      class="bi bi-pencil-square text-primario"
+                      style="font-size: 20px"
+                    ></i
+                  ></a>
+                  <i
+                    (click)="eliminarProduc(producto.id_producto)"
+                    class="bi bi-x-square text-primario mx-3"
+                    style="font-size: 20px; cursor: pointer"
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -27,12 +27,7 @@
             Agregar al Carrito
           </button>
         </div>
-        <p class="fw-bold text-success" *ngIf="msjCarrito">
-          Se agregó correctamente
-        </p>
-        <!-- <p class="fw-bold text-danger" *ngIf="!msjCarrito">
-          Error al crear el carrito.
-        </p> -->
+        <div [innerHTML]="msjCarrito"></div>
       </div>
     </div>
   </div>

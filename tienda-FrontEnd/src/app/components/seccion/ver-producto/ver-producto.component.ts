@@ -12,7 +12,7 @@ import { ProductosService } from 'src/app/service/productos.service';
 export class VerProductoComponent implements OnInit {
   produc: any = {};
   productos: Producto[] = [];
-  msjCarrito: boolean = false;
+  msjCarrito: string = '';
   constructor(
     private producS: ProductosService,
     private carritoS: CarritoService,
@@ -34,18 +34,20 @@ export class VerProductoComponent implements OnInit {
     );
   }
   agregarCarrito() {
-    this.authS.obtenerUsuario().subscribe((user) => {
-      const id = this.activateRouter.snapshot.params['id'];
-      const id_user = user.id_usuario; // el ID del usuario que se esta logueado
-      this.carritoS.agregarProducto(id_user!, id).subscribe(
-        (data) => {
-          this.msjCarrito = true;
-        },
-        (err) => {
-          this.msjCarrito = false;
-        }
-      );
-    });
+    this.authS.obtenerUsuario().subscribe(
+      (user) => {
+        const id = this.activateRouter.snapshot.params['id'];
+        const id_user = user.id_usuario; // el ID del usuario que se esta logueado
+        this.carritoS.agregarProducto(id_user!, id).subscribe((data) => {
+          this.msjCarrito =
+            '<p class="fw-bold text-success">El producto se agregó al carrito.</p>';
+        });
+      },
+      (err) => {
+        this.msjCarrito =
+          '<p class="fw-bold text-danger">Error al agregar producto.</p>';
+      }
+    );
   }
   comprar() {
     this.produc.cantidad = this.produc.cantidad - 1;

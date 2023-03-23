@@ -10,6 +10,7 @@ import { VenderComponent } from './components/seccion/mi-panel/vender/vender.com
 import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-perfil.component';
 import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
+import { GuardService as guard } from './guards/guard.service';
 const routes: Routes = [
   { path: 'inicio', component: HeaderComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -18,10 +19,20 @@ const routes: Routes = [
   { path: 'productos', component: ProductosComponent },
   { path: 'ver-producto/:id', component: VerProductoComponent },
   { path: 'carrito', component: CarritoComponent },
-  { path: 'mi-perfil', component: MiPerfilComponent },
+  {
+    path: 'mi-perfil',
+    component: MiPerfilComponent,
+    canActivate: [guard],
+    data: { expectedRol: ['user'] },
+  },
+  {
+    path: 'mis-productos',
+    component: MisProductosComponent,
+    canActivate: [guard],
+    data: { expectedRol: ['user'] },
+  },
   { path: 'vender', component: VenderComponent },
   { path: 'ayuda', component: AyudaComponent },
-  { path: 'mis-productos', component: MisProductosComponent },
 ];
 
 @NgModule({

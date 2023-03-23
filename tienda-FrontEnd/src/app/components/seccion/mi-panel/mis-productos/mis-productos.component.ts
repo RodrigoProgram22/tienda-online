@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
+import { ProductosService } from 'src/app/service/productos.service';
 import { UsuariosService } from 'src/app/service/usuarios.service';
 
 @Component({
@@ -12,15 +13,41 @@ export class MisProductosComponent implements OnInit {
   constructor(
     public router: Router,
     private usuarioService: UsuariosService,
+    private produS: ProductosService,
     private authS: AuthService
   ) {}
+  editBoolean: boolean = false;
   usuario: any = {};
+  productos: any[] = [];
   ngOnInit(): void {
+    this.obtenerListaProductos();
+  }
+  obtenerListaProductos() {
     this.authS.obtenerUsuario().subscribe((user) => {
-      const id = user.id_usuario; // el ID del usuario que se esta logueado
+      const id = user.id_usuario; // ID del usuario que esta logueado
       this.usuarioService.buscarUsuario(id!).subscribe((usuario) => {
         this.usuario = usuario;
+        this.productos = usuario.productos; // Almacenar los productos del usuario en una propiedad
       });
     });
+  }
+  editarProducto() {
+    if (!this.editBoolean) {
+      this.editBoolean = true;
+    } else {
+      this.editBoolean = false;
+    }
+  }
+  eliminarProduc(id: number) {
+    if (id != undefined) {
+      this.produS.eliminarProducto(id).subscribe(
+        (data) => {
+          this.obtenerListaProductos();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }

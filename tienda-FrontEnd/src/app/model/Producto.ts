@@ -1,6 +1,5 @@
 export class Producto {
   id_producto?: number;
-  id_proveedor: any;
   nombre: string;
   etiquetas: string;
   descripcion: string;

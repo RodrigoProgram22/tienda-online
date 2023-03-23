@@ -4,7 +4,11 @@ import com.mi_tec.tiendaBackEnd.Entity.EProducto;
 import com.mi_tec.tiendaBackEnd.Entity.EUsuario;
 import com.mi_tec.tiendaBackEnd.InterfaceS.IProductoService;
 import com.mi_tec.tiendaBackEnd.InterfaceS.IUsuarioService;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -39,11 +43,13 @@ public class ProductoController {
     }
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping("/producto/crear")
-    public String crearProduc(@RequestBody EProducto produc,@RequestParam Long idProveedor) {
+    public ResponseEntity<Map<String, String>> crearProduc(@RequestBody EProducto produc,@RequestParam Long idProveedor) {
         EUsuario proveedor = iUserS.obtenerUsuarioPorId(idProveedor);
         produc.setProveedor(proveedor);
         iProducS.crearProducto(produc);
-        return "Productos, se creo correctamente.";
+        Map<String, String> response = new HashMap<>();
+        response.put("mensaje", "Producto creado exitosamente.");
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PutMapping("/producto/editar/{id}")
@@ -61,8 +67,8 @@ public class ProductoController {
     }
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @DeleteMapping("/producto/borrar/{id}")
-    public String borrarUser(@PathVariable Long id) {
+    public ResponseEntity<String> borrarProduc(@PathVariable Long id) {
         iProducS.eliminarProducto(id);
-        return "Producto, Se elimino correctamente";
+        return ResponseEntity.ok().body("{\"mensaje\": \"Producto eliminado correctamente\"}");
     }
 }

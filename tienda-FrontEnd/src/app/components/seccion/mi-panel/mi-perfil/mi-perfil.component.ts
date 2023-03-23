@@ -17,7 +17,7 @@ export class MiPerfilComponent implements OnInit {
   usuario: any = {};
   ngOnInit(): void {
     this.authS.obtenerUsuario().subscribe((user) => {
-      const id = user.id_usuario; // el ID del usuario que se esta logueado
+      const id = user.id_usuario; // ID del usuario que esta logueado
       this.usuarioService.buscarUsuario(id!).subscribe((usuario) => {
         this.usuario = usuario;
       });
