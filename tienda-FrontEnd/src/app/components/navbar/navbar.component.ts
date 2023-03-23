@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {
+  Router,
+  Event,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError,
+} from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +14,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public router: Router) {}
-
-  ngOnInit(): void {}
+  isLogged: boolean = false;
+  currentRoute: string = '';
+  constructor(private router: Router, private tokenServi: TokenService) {}
+  btnIni: boolean = true;
+  ngOnInit() {
+    this.router.events.subscribe((event: Event) => {
+      if (this.tokenServi.getToken()) {
+        this.isLogged = true;
+      } else {
+        this.isLogged = false;
+      }
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+        if ('/login' == event.url || this.isLogged) {
+          this.btnIni = false;
+        } else if ('/inicio' === event.url && !this.isLogged) {
+          this.btnIni = true;
+        }
+      }
+    });
+  }
+  onLogOut(): void {
+    this.tokenServi.logOut();
+    window.location.reload();
+  }
 }

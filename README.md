@@ -29,8 +29,9 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Crear el proyecto del BackEnd utilizando Spring Initializr.
 - Crear la BBDD y conectar con el BackEnd.
 - Crear los paquetes y clases necesarios para el proyecto.(BackEnd)
+- JWT Implemmentado correctamente.
 
-Estoy actualmente trabajando en las siguientes funcionalidades:
+  Estoy actualmente trabajando en las siguientes funcionalidades:
 
 - Conectar el FrontEnd con el BackEnd.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.

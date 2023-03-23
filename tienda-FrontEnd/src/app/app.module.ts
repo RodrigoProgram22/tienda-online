@@ -17,6 +17,7 @@ import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-pe
 import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
 import { HttpClientModule } from '@angular/common/http';
+import { interceptorProvider } from './interseptors/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

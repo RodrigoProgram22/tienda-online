@@ -13,8 +13,8 @@ export class CarritoService {
     const endpoint = `${this.url}/${idCarrito}/productos/${idProducto}`;
     return this.http.post(endpoint, {});
   }
-  eliminarProducto(idCarrito: number, idProducto: number): Observable<any> {
-    const endpoint = `${this.url}/${idCarrito}/productos/${idProducto}`;
+  eliminarProducto(id_usuario: number, idProducto: number): Observable<any> {
+    const endpoint = `${this.url}/${id_usuario}/eliminar/${idProducto}`;
     return this.http.delete(endpoint);
   }
   getProductosDelCarrito(idUsuario: number): Observable<Producto[]> {

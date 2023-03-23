@@ -1,6 +1,6 @@
 /* login */
 .bg-primario {
-  max-width: 400px;
+  max-width: 500px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);

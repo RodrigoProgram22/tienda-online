@@ -66,7 +66,7 @@ public class NuevoUsuario {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = nombre;
+        this.telefono = telefono;
     }
      public String getUbicacion() {
         return ubicacion;

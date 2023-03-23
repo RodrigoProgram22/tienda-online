@@ -11,11 +11,13 @@ public interface IUsuarioService {
     public EUsuario obtenerUsuarioPorId(Long id);
 
     public EUsuario guardarUsuario(EUsuario usuario);
-
+    
+    EUsuario buscarPorNombreUsuario(String nombreUsuario);
+    
     public void eliminarUsuario(Long id);
 
     public Optional<EUsuario> getByNombreUsuario(String nombreUsuario);
-
+    
     public boolean existsByNombreUsuario(String nombreUsuario);
 
     public boolean existsByEmail(String email);

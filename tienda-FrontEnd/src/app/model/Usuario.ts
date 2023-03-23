@@ -3,8 +3,8 @@ import { Carrito } from './Carrito';
 
 export class Usuario {
   id_usuario?: number;
-  nombre_usuario: string;
-  nombre_apellido: string;
+  nombreUsuario: string;
+  nombreApellido: string;
   password: string;
   email: string;
   telefono: string;
@@ -13,8 +13,8 @@ export class Usuario {
   carrito: Carrito;
 
   constructor(
-    nombre_usuario: string,
-    nombre_apellido: string,
+    nombreUsuario: string,
+    nombreApellido: string,
     password: string,
     email: string,
     telefono: string,
@@ -22,8 +22,8 @@ export class Usuario {
     productos: Producto[],
     carrito: Carrito
   ) {
-    this.nombre_usuario = nombre_usuario;
-    this.nombre_apellido = nombre_usuario;
+    this.nombreUsuario = nombreUsuario;
+    this.nombreApellido = nombreApellido;
     this.password = password;
     this.email = email;
     this.telefono = telefono;

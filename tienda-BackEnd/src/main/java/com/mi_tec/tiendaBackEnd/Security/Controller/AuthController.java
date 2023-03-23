@@ -10,6 +10,7 @@ import com.mi_tec.tiendaBackEnd.Security.Entity.Rol;
 import com.mi_tec.tiendaBackEnd.Security.Enums.RolNombre;
 import com.mi_tec.tiendaBackEnd.Security.Jwt.JwtProvider;
 import com.mi_tec.tiendaBackEnd.Security.Service.RolService;
+import com.mi_tec.tiendaBackEnd.Service.ImpCarrito;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -25,6 +26,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,6 +52,16 @@ public class AuthController {
 
     @Autowired
     JwtProvider jwtProvider;
+
+    @Autowired
+    ImpCarrito carritoService;
+    
+    @GetMapping("/usuario")
+    public ResponseEntity<?> obtenerUsuario() {
+        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        EUsuario usuario = usuarioService.buscarPorNombreUsuario(userDetails.getUsername());
+        return new ResponseEntity(usuario, HttpStatus.OK);
+    }
 
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUser, BindingResult bindingResult) {
@@ -77,6 +89,9 @@ public class AuthController {
         }
         usuario.setRoles(roles);
         usuarioService.guardarUsuario(usuario);
+        EUsuario nuevoUsuario = usuarioService.guardarUsuario(usuario);
+        carritoService.crearCarrito(nuevoUsuario); // Crear un carrito para el nuevo usuario
+       
         return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);
     }
 

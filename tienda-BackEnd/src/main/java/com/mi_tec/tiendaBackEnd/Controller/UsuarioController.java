@@ -20,20 +20,17 @@ public class UsuarioController {
     @Autowired
     IUsuarioService iUserS;
     
-    @Autowired
-    ImpCarrito carritoService;
-    
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @GetMapping("/usuarios")
     public List<EUsuario> verUsuarios() {
         return iUserS.obtenerUsuarios();
     }
-    @PreAuthorize("hasAnyRole('USER','ADMIN')")
+    @PreAuthorize("hasAnyRole('USER')")
     @GetMapping("/usuario/buscar/{id}")
     public EUsuario buscarUser(@PathVariable Long id) {
         return iUserS.obtenerUsuarioPorId(id);
     }
-      @PreAuthorize("hasAnyRole('USER','ADMIN')")
+      @PreAuthorize("hasAnyRole('USER')")
     @DeleteMapping("/usuario/borrar/{id}")
     public String borrarUser(@PathVariable Long id) {
         iUserS.eliminarUsuario(id);

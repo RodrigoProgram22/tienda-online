@@ -8,54 +8,87 @@
         (ngSubmit)="onRegister()"
         novalidate
       >
-        <div class="form__group field mx-auto mb-4">
-          <input
-            placeholder="Name"
-            class="form__field"
-            id="nombre"
-            name="nombre"
-            type="text"
-            required
-          />
-          <label class="form__label fw-bold" for="name">
-            Nombre completo
-          </label>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col form__group field mx-auto mb-4">
+            <input
+              placeholder="Name"
+              class="form__field"
+              id="nombre"
+              name="nombre"
+              type="text"
+              [(ngModel)]="nombre"
+              required
+            />
+            <label class="form__label fw-bold" for="name">
+              Nombre completo
+            </label>
+          </div>
+          <div class="col form__group field mx-auto mb-4">
+            <input
+              placeholder="Name"
+              class="form__field"
+              id="nombreUsuario"
+              name="nombreUsuario"
+              type="text"
+              [(ngModel)]="nombreUsuario"
+              required
+            />
+            <label class="form__label fw-bold" for="name">
+              Nombre de usuario
+            </label>
+          </div>
+          <div class="col form__group field mx-auto mb-4">
+            <input
+              placeholder="Name"
+              class="form__field"
+              id="email"
+              name="email"
+              type="email"
+              [(ngModel)]="email"
+              required
+            />
+            <label class="form__label fw-bold" for="name">Email</label>
+          </div>
+          <div class="col form__group field mx-auto">
+            <input
+              placeholder="Name"
+              class="form__field"
+              type="text"
+              id="telefono"
+              name="telefono"
+              [(ngModel)]="telefono"
+              required
+            />
+            <label class="form__label fw-bold" for="telefono">Telefono</label>
+          </div>
+          <div class="col form__group field mx-auto">
+            <input
+              placeholder="Name"
+              class="form__field"
+              type="text"
+              id="ubicacion"
+              name="ubicacion"
+              [(ngModel)]="ubicacion"
+              required
+            />
+            <label class="form__label fw-bold" for="password">Ubicación</label>
+          </div>
+          <div class="col form__group field mx-auto">
+            <input
+              placeholder="Name"
+              class="form__field"
+              type="password"
+              id="password"
+              name="password"
+              [(ngModel)]="password"
+              required
+            />
+            <label class="form__label fw-bold" for="password">Contraseña</label>
+          </div>
         </div>
-        <div class="form__group field mx-auto mb-4">
-          <input
-            placeholder="Name"
-            class="form__field"
-            id="nombreUsuario"
-            name="nombreUsuario"
-            type="text"
-            required
-          />
-          <label class="form__label fw-bold" for="name">
-            Nombre de usuario
-          </label>
-        </div>
-        <div class="form__group field mx-auto mb-4">
-          <input
-            placeholder="Name"
-            class="form__field"
-            id="email"
-            name="email"
-            type="email"
-            required
-          />
-          <label class="form__label fw-bold" for="name">Email</label>
-        </div>
-        <div class="form__group field mx-auto">
-          <input
-            placeholder="Name"
-            class="form__field"
-            type="password"
-            id="password"
-            name="password"
-            required
-          />
-          <label class="form__label fw-bold" for="password">Contraseña</label>
-        </div>
+        <p *ngIf="isRegisterFail" class="text-center text-danger mt-4 fw-bold">
+          {{ errMensj }}
+        </p>
         <div class="text-center my-5">
           <button class="mt-2 crear fw-bold" type="submit">Enviar</button>
         </div>

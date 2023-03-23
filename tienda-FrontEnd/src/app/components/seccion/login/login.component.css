@@ -145,7 +145,7 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: var(--secondary);
+  background-color: var(--primary);
   opacity: 0.1;
 }
 
@@ -156,7 +156,7 @@
   border-radius: calc(var(--uib-line-weight) / 2);
   animation: wobble var(--uib-speed) ease-in-out infinite;
   transform: translateX(-90%);
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }
 
 @keyframes wobble {

@@ -3,13 +3,18 @@ import { Router } from '@angular/router';
 import { ProductosService } from 'src/app/service/productos.service';
 import { Producto } from 'src/app/model/Producto';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
 @Component({
   selector: 'app-vender',
   templateUrl: './vender.component.html',
   styleUrls: ['./vender.component.css'],
 })
 export class VenderComponent implements OnInit {
-  constructor(public router: Router, private producService: ProductosService) {}
+  constructor(
+    public router: Router,
+    private producService: ProductosService,
+    private authS: AuthService
+  ) {}
   ngOnInit(): void {}
   crearProducto(form: NgForm) {
     const nombre = form.value.nombreProducto;
@@ -27,9 +32,12 @@ export class VenderComponent implements OnInit {
       'https://via.placeholder.com/150x150.png',
       cantidad
     );
-    this.producService.crearProducto(producto, 1).subscribe(
-      (respuesta) => console.log('Producto creado'),
-      (error) => console.error(error)
-    );
+    this.authS.obtenerUsuario().subscribe((user) => {
+      const id = user.id_usuario; // el ID del usuario que se esta logueado
+      this.producService.crearProducto(producto, id!).subscribe(
+        (respuesta) => console.log(respuesta),
+        (error) => console.error(error)
+      );
+    });
   }
 }

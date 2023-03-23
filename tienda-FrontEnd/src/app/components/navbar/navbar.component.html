@@ -31,28 +31,35 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto mx-3 mb-2 mb-lg-0 align-items-center">
-        <li class="nav-item" *ngIf="router.url !== '/registro'">
+        <li class="nav-item" *ngIf="currentRoute !== '/registro' && !isLogged">
           <a class="nav-link fw-bold btn" routerLink="/registro">
             Creá tu cuenta
           </a>
         </li>
-        <li class="nav-item" *ngIf="router.url !== '/login'">
+        <li class="nav-item" *ngIf="currentRoute !== '/login' && !isLogged">
           <a class="nav-link fw-bold btn" routerLink="/login">Ingresá</a>
         </li>
-        <li class="nav-item" *ngIf="router.url !== '/inicio'">
+        <li class="nav-item" *ngIf="currentRoute !== '/inicio' && !isLogged">
           <a class="nav-link fw-bold btn" routerLink="/inicio">Inicio</a>
         </li>
-        <li class="nav-item mx-2" *ngIf="router.url !== '/carrito'">
+        <li class="nav-item mx-2" *ngIf="currentRoute !== '/carrito'">
           <a routerLink="/carrito">
             <i class="bi bi-cart3 text-primario" style="font-size: 20px"></i>
           </a>
         </li>
-        <li class="nav-item mx-2" *ngIf="router.url !== '/mi-perfil'">
+        <li class="nav-item mx-2" *ngIf="isLogged">
           <a routerLink="/mi-perfil">
             <i
               class="bi bi-person-lines-fill text-primario"
               style="font-size: 20px"
             ></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogged">
+            <a class="nav-link fw-bold btn" type="submit" (click)="onLogOut()">
+              Cerrar Sesión
+            </a>
           </a>
         </li>
       </ul>
