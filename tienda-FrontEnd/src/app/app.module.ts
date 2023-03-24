@@ -18,6 +18,7 @@ import { MisProductosComponent } from './components/seccion/mi-panel/mis-product
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
 import { HttpClientModule } from '@angular/common/http';
 import { interceptorProvider } from './interseptors/interceptor.service';
+import { EditarProductoComponent } from './components/seccion/mi-panel/editar-producto/editar-producto.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { interceptorProvider } from './interseptors/interceptor.service';
     MiPerfilComponent,
     MisProductosComponent,
     AyudaComponent,
+    EditarProductoComponent,
   ],
   imports: [
     BrowserModule,

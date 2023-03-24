@@ -10,9 +10,7 @@ export class ProductosComponent implements OnInit {
   public productos: Array<Producto> = [];
   constructor(private productoS: ProductosService) {}
   ngOnInit(): void {
-    this.cargarProductos;
-    console.log(this.cargarProductos());
-    console.log(this.productos);
+    this.cargarProductos();
   }
   cargarProductos() {
     this.productoS.obtenerProductos().subscribe((data) => {

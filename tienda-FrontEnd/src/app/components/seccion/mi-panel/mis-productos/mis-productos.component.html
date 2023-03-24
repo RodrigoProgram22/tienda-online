@@ -14,11 +14,12 @@
           >Mi Perfil</a
         >
         <a
-          routerLink="/vender"
+          routerLink="/agregar-producto"
           class="list-group-item list-group-item-action"
-          [ngClass]="{ 'active-link': router.url === '/vender' }"
-          >Vender</a
+          [ngClass]="{ 'active-link': router.url === '/agregar-producto' }"
         >
+          Agregar Producto
+        </a>
         <a
           routerLink="/mis-productos"
           class="list-group-item list-group-item-action"
@@ -30,11 +31,26 @@
     </div>
     <div class="col-md-9">
       <h3 class="my-3 text-start">Mis Productos</h3>
-      <button class="text-end" (click)="editarProducto()">
+      <p>
+        Aquí puedes ver tus productos publicados, también puedes editarlo y
+        eliminarlo
+      </p>
+      <button
+        class="text-end"
+        *ngIf="!(productos.length == 0)"
+        (click)="editarProducto()"
+      >
         Editar Productos
       </button>
       <hr />
-      <div class="row">
+      <div *ngIf="productos.length == 0">
+        <h5 class="mx-auto">No hay productos publicados con esta cuenta.</h5>
+        <a routerLink="/agregar-producto" class="text-primario fw-bold"
+          >Ingresa aquí</a
+        >
+        para agregar productos.
+      </div>
+      <div class="row" *ngIf="productos">
         <!-- Productos como tarjetas en columnas de 4 -->
         <div class="col-md-3 my-2" *ngFor="let producto of productos">
           <div class="card mx-auto">
@@ -48,14 +64,16 @@
             <div class="card-body">
               <p class="card-title">{{ producto.nombre }}</p>
               <p class="card-text">${{ producto.precio }}</p>
+              <p class="card-text">Cantidad: {{ producto.cantidad }}</p>
               <div *ngIf="editBoolean" class="container-fluid">
                 <div class="text-center">
-                  <a routerLink="/ver-producto/{{ producto.id_producto }}"
-                    ><i
+                  <a routerLink="/edit-producto/{{ producto.id_producto }}">
+                    <i
                       class="bi bi-pencil-square text-primario"
                       style="font-size: 20px"
-                    ></i
-                  ></a>
+                    >
+                    </i>
+                  </a>
                   <i
                     (click)="eliminarProduc(producto.id_producto)"
                     class="bi bi-x-square text-primario mx-3"

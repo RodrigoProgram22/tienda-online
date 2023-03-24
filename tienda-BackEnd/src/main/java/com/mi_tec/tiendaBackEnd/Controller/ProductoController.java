@@ -60,9 +60,9 @@ public class ProductoController {
     producto.setEtiquetas(productoActualizado.getEtiquetas());
     producto.setDescripcion(productoActualizado.getDescripcion());
     producto.setPrecio(productoActualizado.getPrecio());
-    producto.setPrecio(productoActualizado.getPrecio());
+    producto.setImagen(productoActualizado.getImagen());
     producto.setCantidad(productoActualizado.getCantidad());
-    
+   
     return iProducS.crearProducto(producto);
     }
     @PreAuthorize("hasAnyRole('USER','ADMIN')")

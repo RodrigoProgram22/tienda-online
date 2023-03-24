@@ -1,23 +1,4 @@
-<section class="m-5 p-3" *ngIf="!isLogged">
-  <div class="card-ofertas mx-auto">
-    <div class="container text-center p-2">
-      <h2>Hola! Primero debes ingresar a tu cuenta</h2>
-    </div>
-    <div class="card-body">
-      <div class="text-center my-4">
-        <a routerLink="/registro">
-          <button class="my-2 crear fw-bold">Creá tu cuenta</button>
-        </a>
-        <div class="p-4">
-          <a class="fw-bold text-center text-primario mb-1" routerLink="/login">
-            Ingresar
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section *ngIf="isLogged">
+<section>
   <div class="container mt-4">
     <div class="row">
       <div class="col-md-3">
@@ -50,12 +31,13 @@
         </div>
       </div>
       <div class="col-md-9">
-        <h3 class="my-3">Agregar Producto</h3>
+        <h3 class="my-3">Editar Producto</h3>
         <p>
-          Tu producto será publicado para que cualquier usuario lo pueda ver.
+          Actualiza tu producto con nuevos precios o cambia un dato que
+          ingresaste mal.
         </p>
         <hr />
-        <form #f="ngForm" (submit)="crearProducto(f)">
+        <form #f="ngForm" (submit)="editarProducto(f)">
           <div class="my-4">
             <label for="nombreProducto" class="fw-bold"
               >Nombre del Producto</label
@@ -65,7 +47,7 @@
               class="input"
               id="nombreProducto"
               name="nombreProducto"
-              placeholder="Ingrese el nombre del producto"
+              placeholder="{{ produc.nombre }}"
               ngModel
               required
             />
@@ -81,7 +63,7 @@
               name="etiquetasProducto"
               ngModel
               required
-              placeholder="Ingrese las etiquetas del producto (separadas por comas)"
+              placeholder="{{ produc.etiquetas }}"
             />
           </div>
           <div class="form-group my-4">
@@ -95,7 +77,7 @@
               ngModel
               required
               rows="3"
-              placeholder="Ingrese una descripción del producto"
+              placeholder="{{ produc.descripcion }}"
             ></textarea>
           </div>
           <div class="form-group">
@@ -109,7 +91,7 @@
               name="precioProducto"
               ngModel
               required
-              placeholder="Ingrese el precio del producto"
+              placeholder="{{ produc.precio }}"
             />
           </div>
           <div class="form-group">
@@ -123,7 +105,7 @@
               name="cantidadProducto"
               ngModel
               required
-              placeholder="Ingrese la cantidad de Stock"
+              placeholder="{{ produc.cantidad }}"
             />
           </div>
           <div class="form-group my-4">
@@ -135,7 +117,7 @@
           <div [innerHTML]="msj"></div>
           <div>
             <button type="submit" class="enviar fw-bold">
-              Agregar Producto
+              Editar Producto
             </button>
           </div>
         </form>

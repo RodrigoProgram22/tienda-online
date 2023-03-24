@@ -11,6 +11,7 @@ import { MiPerfilComponent } from './components/seccion/mi-panel/mi-perfil/mi-pe
 import { MisProductosComponent } from './components/seccion/mi-panel/mis-productos/mis-productos.component';
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
 import { GuardService as guard } from './guards/guard.service';
+import { EditarProductoComponent } from './components/seccion/mi-panel/editar-producto/editar-producto.component';
 const routes: Routes = [
   { path: 'inicio', component: HeaderComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -31,7 +32,13 @@ const routes: Routes = [
     canActivate: [guard],
     data: { expectedRol: ['user'] },
   },
-  { path: 'vender', component: VenderComponent },
+  {
+    path: 'edit-producto/:id',
+    component: EditarProductoComponent,
+    canActivate: [guard],
+    data: { expectedRol: ['user'] },
+  },
+  { path: 'agregar-producto', component: VenderComponent },
   { path: 'ayuda', component: AyudaComponent },
 ];
 

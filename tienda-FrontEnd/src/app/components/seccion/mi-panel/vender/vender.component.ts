@@ -35,7 +35,7 @@ export class VenderComponent implements OnInit {
     const cantidad = form.value.cantidadProducto;
     if (!nombre || !etiquetas || !descripcion || !precio || !cantidad) {
       this.msj =
-        '<p class="fw-bold text-danger">Error: Todos los campos deben estar llenos.</p>';
+        '<p class="fw-bold text-danger">Todos los campos deben estar llenos.</p>';
       return;
     }
     const producto = new Producto(
@@ -49,9 +49,7 @@ export class VenderComponent implements OnInit {
     this.authS.obtenerUsuario().subscribe((user) => {
       const id = user.id_usuario; // ID del usuario que esta logueado
       this.producService.crearProducto(producto, id!).subscribe(
-        (respuesta) => {
-          console.log(respuesta.mensaje); // muestra el mensaje devuelto por el controlador del backend
-        },
+        (respuesta) => {},
         (error) => console.error(error)
       );
     });

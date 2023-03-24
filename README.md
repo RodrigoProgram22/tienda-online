@@ -30,12 +30,14 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Crear la BBDD y conectar con el BackEnd.
 - Crear los paquetes y clases necesarios para el proyecto.(BackEnd)
 - JWT Implemmentado correctamente.
+- Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos.
+- Conectar el FrontEnd con el BackEnd.
 
   Estoy actualmente trabajando en las siguientes funcionalidades:
 
-- Conectar el FrontEnd con el BackEnd.
-- Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos y cambiar la cantidad de productos en su carrito.
+- Mejorar el diseño del FrontEnd cambiando la fuente, mejorar la vista en más dispositivos, etc.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
+- Mejorar la función de agregar productos, añadiendo imágenes del producto.
 
 ## Tecnologías utilizadas
 
@@ -43,6 +45,8 @@ Este proyecto ha sido desarrollado utilizando las siguientes tecnologías:
 
 - Angular 12: Un framework de JavaScript para la construcción de aplicaciones web.
 - Bootstrap 5: Un framework de diseño y estilo CSS para construir sitios web responsivos y móviles.
+- Java Spring Boot: (Spring Boot) es una herramienta que hace que el desarrollo de aplicaciones web y microservicios con Spring Framework sea más rápido y fácil.
+- MySQL: permite almacenar y acceder a los datos a través de múltiples motores de almacenamiento, incluyendo InnoDB, CSV y NDB. MySQL también es capaz de replicar datos y particionar tablas para mejorar el rendimiento y la durabilidad.
 
 También se utilizaron las siguientes bibliotecas y herramientas:
 
