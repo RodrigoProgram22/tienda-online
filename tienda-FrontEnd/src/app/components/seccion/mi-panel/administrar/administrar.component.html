@@ -1,0 +1,64 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action bg-primario text-light fw-bold"
+        >
+          Panel de Control
+        </a>
+        <a
+          routerLink="/mi-perfil"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mi-perfil' }"
+          >Mi Perfil</a
+        >
+        <a
+          routerLink="/agregar-producto"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/agregar-producto' }"
+        >
+          Agregar Producto
+        </a>
+        <a
+          routerLink="/mis-productos"
+          class="list-group-item list-group-item-action"
+          [ngClass]="{ 'active-link': router.url === '/mis-productos' }"
+        >
+          Mis Productos
+        </a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h3 class="my-3">Administrar</h3>
+      <p>Aquí podrás ver los usuarios registrados en tu web.</p>
+      <hr />
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Usuario</th>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Email</th>
+            <th scope="col">Modificar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let usuario of usuarios; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ usuario.nombreUsuario }}</td>
+            <td>{{ usuario.nombreApellido }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>
+              <i
+                (click)="eliminarUser(usuario.id_usuario)"
+                class="bi bi-x-square text-primario mx-3"
+                style="font-size: 20px; cursor: pointer"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

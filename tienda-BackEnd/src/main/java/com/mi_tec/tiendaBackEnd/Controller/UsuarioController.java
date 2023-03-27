@@ -5,6 +5,7 @@ import com.mi_tec.tiendaBackEnd.InterfaceS.IUsuarioService;
 import com.mi_tec.tiendaBackEnd.Service.ImpCarrito;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,8 +33,8 @@ public class UsuarioController {
     }
       @PreAuthorize("hasAnyRole('USER')")
     @DeleteMapping("/usuario/borrar/{id}")
-    public String borrarUser(@PathVariable Long id) {
+    public ResponseEntity<String> borrarUser(@PathVariable Long id) {
         iUserS.eliminarUsuario(id);
-        return "Usuario, Se elimino correctamente";
+        return ResponseEntity.ok().body("{\"mensaje\": \"Usuario, Se elimino correctamente\"}");
     }
 }

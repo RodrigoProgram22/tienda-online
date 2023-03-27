@@ -12,6 +12,7 @@ import { MisProductosComponent } from './components/seccion/mi-panel/mis-product
 import { AyudaComponent } from './components/seccion/ayuda/ayuda.component';
 import { GuardService as guard } from './guards/guard.service';
 import { EditarProductoComponent } from './components/seccion/mi-panel/editar-producto/editar-producto.component';
+import { AdministrarComponent } from './components/seccion/mi-panel/administrar/administrar.component';
 const routes: Routes = [
   { path: 'inicio', component: HeaderComponent },
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
@@ -25,6 +26,12 @@ const routes: Routes = [
     component: MiPerfilComponent,
     canActivate: [guard],
     data: { expectedRol: ['user'] },
+  },
+  {
+    path: 'admin',
+    component: AdministrarComponent,
+    canActivate: [guard],
+    data: { expectedRol: ['admin'] },
   },
   {
     path: 'mis-productos',
