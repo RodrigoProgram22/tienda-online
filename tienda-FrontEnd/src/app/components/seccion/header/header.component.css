@@ -41,7 +41,7 @@ a {
     border: var(--primary) 0.1em solid;
   }
   .titulo {
-    font-size: 15px;
+    font-size: 10px;
   }
   .active-icon {
     font-size: 20px;

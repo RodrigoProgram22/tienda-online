@@ -85,7 +85,7 @@ a {
 .card-ofertas:hover {
   /*  opacity: 0.8; */
   transform: scale(1.1);
-  border: var(--primary) 0.2em solid;
+  border: var(--primary) 0.1em solid;
 }
 @media screen and (max-width: 767px) {
   .card-ofertas {

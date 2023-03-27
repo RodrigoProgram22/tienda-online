@@ -32,10 +32,10 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - JWT Implemmentado correctamente.
 - Mejorar la funcionalidad del carrito de compras, permitiendo a los usuarios agregar o eliminar productos.
 - Conectar el FrontEnd con el BackEnd.
+- Mejorar el diseño del FrontEnd cambiando la fuente, mejorar la vista en más dispositivos, etc.
 
   Estoy actualmente trabajando en las siguientes funcionalidades:
 
-- Mejorar el diseño del FrontEnd cambiando la fuente, mejorar la vista en más dispositivos, etc.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 - Mejorar la función de agregar productos, añadiendo imágenes del producto.
 
