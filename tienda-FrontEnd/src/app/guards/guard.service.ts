@@ -28,7 +28,7 @@ export class GuardService implements CanActivate {
     });
     if (!this.tokenS.getToken() || expectedRol.indexOf(this.realRol) === -1) {
       this.router.navigate(['/inicio']);
-      alert('Debes ser registrarte');
+      alert('Lo siento debes registrarte');
       return false;
     }
     return true;

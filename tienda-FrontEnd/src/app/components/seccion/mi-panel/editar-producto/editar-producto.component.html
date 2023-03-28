@@ -37,7 +37,12 @@
           ingresaste mal.
         </p>
         <hr />
-        <form #f="ngForm" (submit)="editarProducto(f)">
+        <div *ngIf="!proveedor_valido">
+          <h3 class="text-danger">
+            Lo siento no puedes modificar este producto.
+          </h3>
+        </div>
+        <form #f="ngForm" (submit)="editarProducto(f)" *ngIf="proveedor_valido">
           <div class="my-4">
             <label for="nombreProducto" class="fw-bold"
               >Nombre del Producto</label

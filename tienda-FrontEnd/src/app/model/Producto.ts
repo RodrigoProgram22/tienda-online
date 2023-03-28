@@ -1,5 +1,8 @@
+import { Usuario } from './Usuario';
+
 export class Producto {
   id_producto?: number;
+  proveedor?: Usuario;
   nombre: string;
   etiquetas: string;
   descripcion: string;
