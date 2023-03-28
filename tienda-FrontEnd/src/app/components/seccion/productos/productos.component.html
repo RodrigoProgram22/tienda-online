@@ -2,43 +2,72 @@
   <div class="row">
     <!-- Barra de navegación de filtros de productos -->
     <div class="col-md-3">
-      <h4>Filtrar por</h4>
+      <h4>
+        Filtrar por
+        <i
+          (click)="cargarProductos()"
+          class="bi bi-arrow-clockwise text-primario fw-bold"
+          style="font-size: 25px; cursor: pointer"
+        ></i>
+      </h4>
       <hr />
       <h5>Categorías</h5>
       <ul class="text-primario">
-        <li><a href="#" class="text-primario">Categoría 1</a></li>
-        <li><a href="#" class="text-primario">Categoría 2</a></li>
-        <li><a href="#" class="text-primario">Categoría 3</a></li>
+        <li class="text-primario" (click)="celularFiltro()">
+          Smartphone y Celular
+        </li>
+        <li class="text-primario" (click)="gamerFiltro()">
+          Consolas y Videojuegos
+        </li>
+        <li class="text-primario" (click)="notebookFiltro()">Notebook</li>
       </ul>
       <hr />
       <h5>Marca</h5>
       <ul class="text-primario">
-        <li><a href="#" class="text-primario">Marca 1</a></li>
-        <li><a href="#" class="text-primario">Marca 2</a></li>
-        <li><a href="#" class="text-primario">Marca 3</a></li>
+        <li class="text-primario" (click)="samsungFiltro()">Samsung</li>
+        <li class="text-primario" (click)="appleFiltro()">Apple</li>
+        <li class="text-primario" (click)="sonyFiltro()">Sony</li>
       </ul>
+      <hr />
+      <p
+        style="cursor: pointer"
+        class="text-primario text-center"
+        (click)="cargarProductos()"
+      >
+        Eliminar filtros
+      </p>
     </div>
     <!-- Productos -->
     <div class="col-md-9">
       <h4>Todos los productos</h4>
+      <input
+        class="input"
+        name="text"
+        placeholder="Busca productos, marcas y más"
+        type="search"
+        [(ngModel)]="nombreBusqueda"
+        (input)="buscar(nombreBusqueda)"
+      />
+      <button class="ms-2" (click)="buscar(nombreBusqueda)">Buscar</button>
       <hr />
+      <div class="container m-5 text-center" *ngIf="loader">
+        <div class="line-wobble mx-auto"></div>
+      </div>
       <div class="row">
         <!-- Productos como tarjetas en columnas de 4 -->
         <div class="col-md-3 my-2" *ngFor="let producto of productos">
           <div class="card mx-auto">
-            <img
-              class="card-img-top"
-              src="https://via.placeholder.com/250x250"
-              alt="Card image cap"
-            />
+            <a routerLink="/ver-producto/{{ producto.id_producto }}">
+              <img
+                class="card-img-top"
+                src="https://via.placeholder.com/250x250"
+                alt="Card image cap"
+              />
+            </a>
             <div class="card-body">
               <p class="card-title">{{ producto.nombre }}</p>
-              <p class="card-text">${{ producto.precio }}</p>
-              <a routerLink="/ver-producto/{{ producto.id_producto }}">
-                <button class="my-2 ver-produc fw-bold p-1">
-                  Ver Producto
-                </button>
-              </a>
+              <h5 class="card-text">${{ producto.precio }}</h5>
+              <p class="card-text text-success">Envió Gratis</p>
             </div>
           </div>
         </div>

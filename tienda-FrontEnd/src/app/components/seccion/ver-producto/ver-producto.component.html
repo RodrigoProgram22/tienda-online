@@ -11,9 +11,9 @@
         <h2 class="fw-bold text-center text-md-start">{{ produc.nombre }}</h2>
         <p class="text-primario fw-bold">Etiquetas: {{ produc.etiquetas }}</p>
         <p class="fw-bold">${{ produc.precio }}</p>
-        <p class="fw-bold">Envió Gratis</p>
         <p class="fw-bold">Cantidad: {{ produc.cantidad }}</p>
-        <p class="fw-bold">Publicado el 10 de Diciembre.</p>
+        <p class="fw-bold">Proveedor: {{ produc.proveedor?.nombreUsuario }}</p>
+        <p class="fw-bold text-success">Envió Gratis</p>
         <p class="fw-bold">Descripcion: {{ produc.descripcion }}</p>
         <div class="text-start my-5">
           <button class="mt-2 enviar fw-bold" type="submit" (click)="comprar()">

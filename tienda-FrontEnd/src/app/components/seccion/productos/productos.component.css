@@ -1,9 +1,10 @@
 a {
   text-decoration: none;
 }
-a:hover {
+
+li {
   color: var(--primary);
-  text-decoration: none;
+  cursor: pointer;
 }
 .card {
   /* width: 500px; */
@@ -57,6 +58,128 @@ a:hover {
 }
 .ver-produc:active {
   filter: brightness(0.8);
+}
+/* Busqueda de productos */
+.input {
+  width: 400px;
+  line-height: 28px;
+  border: 2px solid transparent;
+  border-bottom-color: #8757e7;
+  padding: 0.2rem 0;
+  outline: none;
+  background-color: transparent;
+  color: #0d0c22;
+  transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.input:focus,
+input:hover {
+  outline: none;
+  padding: 0.2rem 1rem;
+  border-radius: 1rem;
+  border-color: var(--primary);
+}
+
+.input::placeholder {
+  color: #777777;
+}
+
+.input:focus::placeholder {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+/* Boton de busqueda */
+button {
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: color;
+}
+
+button:focus,
+button:hover {
+  color: var(--primary);
+}
+
+button:focus:after,
+button:hover:after {
+  width: 100%;
+  left: 0%;
+}
+
+button:after {
+  content: "";
+  pointer-events: none;
+  bottom: -2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+  transition-property: width, left;
+}
+.btn:hover {
+  color: var(--primary);
+} /* loader */
+.line-wobble {
+  --uib-size: 80px;
+  --uib-speed: 1.55s;
+  --uib-line-weight: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--uib-line-weight);
+  width: var(--uib-size);
+  border-radius: calc(var(--uib-line-weight) / 2);
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.line-wobble::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary);
+  opacity: 0.1;
+}
+
+.line-wobble::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: calc(var(--uib-line-weight) / 2);
+  animation: wobble var(--uib-speed) ease-in-out infinite;
+  transform: translateX(-90%);
+  background-color: var(--primary);
+}
+@keyframes wobble {
+  0%,
+  100% {
+    transform: translateX(-90%);
+  }
+
+  50% {
+    transform: translateX(90%);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .input {
+    margin-top: 25px;
+    width: 250px;
+  }
 }
 @media screen and (max-width: 995px) {
   .card {
