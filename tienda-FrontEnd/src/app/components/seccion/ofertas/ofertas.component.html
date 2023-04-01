@@ -5,19 +5,19 @@
       <div class="col text-center card mx-auto">
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
-            <h4 class="text-center text-md-start">Sony PlayStation 5</h4>
-            <h5>$260.000</h5>
+            <h4 class="text-center text-md-start">{{ producPlay.nombre }}</h4>
+            <h5>${{ producPlay.precio }}</h5>
             <h5 class="text-primario">Hasta un 50% OFF</h5>
-            <a routerLink="/ver-producto" class="text-primary fw-bold">
+            <a
+              routerLink="/ver-producto/{{ producPlay.id_producto }}"
+              class="text-primary fw-bold"
+            >
               Ver Más
             </a>
           </div>
           <div class="col align-items-center">
-            <a routerLink="/ver-producto">
-              <img
-                src="../../../assets/img/ofertas/play.jpg"
-                class="img-fluid img-produc-1"
-              />
+            <a routerLink="/ver-producto/{{ producPlay.id_producto }}">
+              <img [src]="producPlay.imagen" class="img-fluid img-produc-1" />
             </a>
           </div>
         </div>
@@ -25,19 +25,19 @@
       <div class="col text-center card-2 p-2 mx-auto">
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
-            <h4 class="text-center text-md-start">Microsoft Xbox Series X</h4>
-            <h5>$240.000</h5>
+            <h4 class="text-center text-md-start">{{ producXbox.nombre }}</h4>
+            <h5>${{ producXbox.precio }}</h5>
             <h5 class="text-primario">Hasta un 70% OFF</h5>
-            <a routerLink="/ver-producto" class="text-primary fw-bold">
+            <a
+              routerLink="/ver-producto/{{ producXbox.id_producto }}"
+              class="text-primary fw-bold"
+            >
               Ver Más
             </a>
           </div>
           <div class="col align-items-center">
-            <a routerLink="/ver-producto">
-              <img
-                src="../../../assets/img/ofertas/xbox.jpg"
-                class="img-fluid img-produc-1"
-              />
+            <a routerLink="/ver-producto/{{ producXbox.id_producto }}">
+              <img [src]="producXbox.imagen" class="img-fluid img-produc-1" />
             </a>
           </div>
         </div>
@@ -50,101 +50,22 @@
   <div class="container mx-auto p-3">
     <h3>Ofertas del mes</h3>
     <div class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto">
-      <div class="col text-center">
+      <div class="col text-center" *ngFor="let producto of productos">
         <div class="card-ofertas mx-auto">
           <div class="container text-center p-2">
-            <a routerLink="/ver-producto" class="text-center">
-              <img
-                class="img-produc-2 img-fluid"
-                src="../../../assets/img/ofertas/lenovo.jpg"
-              />
-            </a>
-          </div>
-          <hr />
-          <div class="card-body">
-            <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
-              <h5 class="col fw-bold text-center text-md-end">$40.222</h5>
-              <p class="col text-success text-center text-md-start my-0">
-                30% OFF
-              </p>
-            </div>
             <a
-              routerLink="/ver-producto"
-              class="text-success text-start fw-bold"
+              routerLink="/ver-producto/{{ producto.id_producto }}"
+              class="text-center"
             >
-              Envió Gratis
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col text-center">
-        <div class="card-ofertas mx-auto">
-          <div class="container text-center p-2">
-            <a routerLink="/ver-producto" class="text-center">
-              <img
-                class="img-produc-2 img-fluid"
-                src="../../../assets/img/ofertas/pcgamer.jpg"
-              />
+              <img class="img-produc-2 img-fluid" [src]="producto.imagen" />
             </a>
           </div>
           <hr />
           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
-              <h5 class="coltext-center text-md-end fw-bold">$40.222</h5>
-              <p class="col text-success text-center text-md-start my-0">
-                30% OFF
-              </p>
-            </div>
-            <a
-              routerLink="/ver-producto"
-              class="text-success text-start fw-bold"
-            >
-              Envió Gratis
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col text-center">
-        <div class="card-ofertas mx-auto">
-          <div class="container text-center p-2">
-            <a routerLink="/ver-producto" class="text-center">
-              <img
-                class="img-produc-2 img-fluid"
-                src="../../../assets/img/ofertas/lenovo.jpg"
-              />
-            </a>
-          </div>
-          <hr />
-          <div class="card-body">
-            <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
-              <h5 class="col text-center text-md-end fw-bold">$40.222</h5>
-              <p class="col text-success text-center text-md-start my-0">
-                30% OFF
-              </p>
-            </div>
-            <a
-              routerLink="/ver-producto"
-              class="text-success text-start fw-bold"
-            >
-              Envió Gratis
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col text-center">
-        <div class="card-ofertas mx-auto">
-          <div class="container text-center p-2">
-            <a routerLink="/ver-producto" class="text-center">
-              <img
-                class="img-produc-2 img-fluid"
-                src="../../../assets/img/ofertas/pcgamer.jpg"
-              />
-            </a>
-          </div>
-          <hr />
-          <div class="card-body">
-            <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
-              <h5 class="col text-center text-md-end fw-bold">$40.222</h5>
+              <h5 class="col fw-bold text-center text-md-end">
+                ${{ producto.precio }}
+              </h5>
               <p class="col text-success text-center text-md-start my-0">
                 30% OFF
               </p>
@@ -170,20 +91,19 @@
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
             <h4 class="text-center text-md-start">
-              Pc Armada Gamer Amd A10 9700
+              {{ producPc.nombre }}
             </h4>
-            <h5>$169.000</h5>
+            <h5>${{ producPc.precio }}</h5>
             <h5 class="text-primario">Hasta un 20% OFF</h5>
-            <a routerLink="/ver-producto" class="text-primary fw-bold"
+            <a
+              routerLink="/ver-producto/{{ producPc.id_producto }}"
+              class="text-primary fw-bold"
               >Ver Más</a
             >
           </div>
           <div class="col align-items-center">
-            <a routerLink="/ver-producto">
-              <img
-                src="../../../assets/img/ofertas/pcgamer.jpg"
-                class="img-fluid img-produc-1"
-              />
+            <a routerLink="/ver-producto/{{ producPc.id_producto }}">
+              <img [src]="producPc.imagen" class="img-fluid img-produc-1" />
             </a>
           </div>
         </div>
@@ -192,20 +112,19 @@
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
             <h4 class="text-center text-md-start">
-              Notebook Lenovo Legion Pro 5
+              {{ producLenovo.nombre }}
             </h4>
-            <h5>$899.999</h5>
+            <h5>${{ producLenovo.precio }}</h5>
             <h5 class="text-primario">Hasta un 30% OFF</h5>
-            <a routerLink="/ver-producto" class="text-primary fw-bold"
+            <a
+              routerLink="/ver-producto/{{ producLenovo.id_producto }}"
+              class="text-primary fw-bold"
               >Ver Más</a
             >
           </div>
           <div class="col align-items-center">
-            <a routerLink="/ver-producto">
-              <img
-                src="../../../assets/img/ofertas/lenovo.jpg"
-                class="img-fluid img-produc-1"
-              />
+            <a routerLink="/ver-producto/{{ producLenovo.id_producto }}">
+              <img [src]="producLenovo.imagen" class="img-fluid img-produc-1" />
             </a>
           </div>
         </div>

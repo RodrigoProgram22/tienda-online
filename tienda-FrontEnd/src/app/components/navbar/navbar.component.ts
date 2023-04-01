@@ -38,5 +38,6 @@ export class NavbarComponent implements OnInit {
   onLogOut(): void {
     this.tokenServi.logOut();
     window.location.reload();
+    this.router.navigate(['/inicio']);
   }
 }

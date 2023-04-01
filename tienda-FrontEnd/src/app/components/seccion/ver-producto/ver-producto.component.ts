@@ -10,8 +10,8 @@ import { ProductosService } from 'src/app/service/productos.service';
   styleUrls: ['./ver-producto.component.css'],
 })
 export class VerProductoComponent implements OnInit {
+  productosAleatorios: any[] = [];
   produc: any = {};
-  productos: Producto[] = [];
   msjCarrito: string = '';
   constructor(
     private producS: ProductosService,
@@ -20,8 +20,11 @@ export class VerProductoComponent implements OnInit {
     private authS: AuthService,
     private router: Router
   ) {}
-
   ngOnInit(): void {
+    this.cargarProducto();
+    this.cargarRecomendados();
+  }
+  cargarProducto() {
     const id = this.activateRouter.snapshot.params['id'];
     this.producS.buscarProducto(id).subscribe(
       (data) => {
@@ -48,6 +51,17 @@ export class VerProductoComponent implements OnInit {
           '<p class="fw-bold text-danger">Error al agregar producto.</p>';
       }
     );
+  }
+  cargarRecomendados() {
+    this.producS.obtenerProductos().subscribe((data) => {
+      while (this.productosAleatorios.length < 4) {
+        const indiceAleatorio = Math.floor(Math.random() * data.length);
+        const productoAleatorio = data[indiceAleatorio];
+        if (!this.productosAleatorios.includes(productoAleatorio)) {
+          this.productosAleatorios.push(productoAleatorio);
+        }
+      }
+    });
   }
   comprar() {
     alert('Esta funcion está en mantenimiento');
