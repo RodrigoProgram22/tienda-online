@@ -20,6 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { interceptorProvider } from './interseptors/interceptor.service';
 import { EditarProductoComponent } from './components/seccion/mi-panel/editar-producto/editar-producto.component';
 import { AdministrarComponent } from './components/seccion/mi-panel/administrar/administrar.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { AdministrarComponent } from './components/seccion/mi-panel/administrar/
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent],

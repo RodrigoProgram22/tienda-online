@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/model/Producto';
 import { ProductosService } from 'src/app/service/productos.service';
+
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -18,13 +19,14 @@ export class ProductosComponent implements OnInit {
   buscar(nombre: string) {
     this.loader = true;
     if (nombre === '') {
+      this.loader = true;
       this.cargarProductos();
       return console.info('Buscador vacio');
     }
     this.productoS.obtenerProductosPorNombre(nombre).subscribe((filtro) => {
       this.productos = filtro;
+      this.loader = false;
     });
-    this.loader = false;
   }
   cargarProductos() {
     this.loader = true;
@@ -41,9 +43,10 @@ export class ProductosComponent implements OnInit {
             this.etiquetas.push(etiqueta);
           }
         });
+        this.loader = false;
       });
+      this.loader = false;
     });
-    this.loader = false;
   }
   celularFiltro() {
     this.productos = this.productos.filter((producto) => {

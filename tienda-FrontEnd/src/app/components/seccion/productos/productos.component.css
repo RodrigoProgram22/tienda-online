@@ -6,6 +6,11 @@ li {
   color: var(--primary);
   cursor: pointer;
 }
+.card-img-top {
+  width: 190;
+  height: 150px;
+  object-fit: contain;
+}
 .card {
   /* width: 500px; */
   box-shadow: 0 5px 10px 0 rgba(31, 38, 135, 0.37);

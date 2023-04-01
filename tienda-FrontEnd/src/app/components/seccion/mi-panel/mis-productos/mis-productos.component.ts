@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { ProductosService } from 'src/app/service/productos.service';
 import { UsuariosService } from 'src/app/service/usuarios.service';
-
 @Component({
   selector: 'app-mis-productos',
   templateUrl: './mis-productos.component.html',
@@ -19,6 +18,7 @@ export class MisProductosComponent implements OnInit {
   editBoolean: boolean = false;
   usuario: any = {};
   productos: any[] = [];
+  imgUrl: string = '';
   ngOnInit(): void {
     this.obtenerListaProductos();
   }

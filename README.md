@@ -34,9 +34,6 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Conectar el FrontEnd con el BackEnd.
 - Mejorar el diseño del FrontEnd cambiando la fuente, mejorar la vista en más dispositivos, etc.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
-
-  Estoy actualmente trabajando en las siguientes funcionalidades:
-
 - Mejorar la función de agregar productos, añadiendo imágenes del producto.
 
 ## Tecnologías utilizadas
@@ -50,6 +47,7 @@ Este proyecto ha sido desarrollado utilizando las siguientes tecnologías:
 
 También se utilizaron las siguientes bibliotecas y herramientas:
 
+- Firebase: Se uso Firebase Storage para guardar las imágenes añadidas por los usuarios.
 - Diagrams.net: Es una herramienta en línea gratuita y de código abierto para crear diagramas, como diagramas de flujo, diagramas de red, diagramas de clases y muchos otros tipos de diagramas.
 - Figma: Una herramienta de diseño de interfaz de usuario que se utiliza para crear prototipos, wireframes y diseños para aplicaciones web y móviles.
 - Visual Studio Code: Un editor de código fuente desarrollado por Microsoft para Windows, Linux y macOS.

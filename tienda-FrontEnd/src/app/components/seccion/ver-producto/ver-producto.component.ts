@@ -50,6 +50,6 @@ export class VerProductoComponent implements OnInit {
     );
   }
   comprar() {
-    this.produc.cantidad = this.produc.cantidad - 1;
+    alert('Esta funcion está en mantenimiento');
   }
 }

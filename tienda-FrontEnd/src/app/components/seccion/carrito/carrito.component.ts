@@ -21,10 +21,10 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenServi.getToken()) {
       this.isLogged = true;
+      this.cargarProductos();
     } else {
       this.isLogged = false;
     }
-    this.cargarProductos();
   }
   cargarProductos() {
     this.authS.obtenerUsuario().subscribe((user) => {

@@ -33,23 +33,20 @@
     <div class="container" *ngIf="true">
       <div
         class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2"
-        *ngFor="let carrito of productos"
+        *ngFor="let produc of productos"
       >
         <div class="col text-center">
           <a routerLink="/ver-producto">
-            <img
-              src="../../../../assets/img/ofertas/pcgamer.jpg"
-              class="img-fluid img-carrito"
-            />
+            <img [src]="produc.imagen" class="img-fluid img-carrito" />
           </a>
         </div>
         <div class="col text-center">
-          <p class="fw-bold">{{ carrito.nombre }}</p>
+          <p class="fw-bold">{{ produc.nombre }}</p>
         </div>
         <div class="col text-center">
-          <h3>$ {{ carrito.precio }}</h3>
+          <h3>$ {{ produc.precio }}</h3>
           <i
-            (click)="eliminar(carrito.id_producto)"
+            (click)="eliminar(produc.id_producto)"
             class="bi bi-x-circle text-primario"
             style="font-size: 30px; cursor: pointer"
           ></i>
