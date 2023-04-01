@@ -10,9 +10,9 @@ a {
 }
 .titulo {
   font-size: 24px;
+  color: var(--primary);
 }
 .card {
-  font-size: 20px;
   box-shadow: 0.3em 0.3em 0.7em #00000015;
   transition: all 300ms;
 }

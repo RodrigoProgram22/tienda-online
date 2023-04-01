@@ -48,8 +48,8 @@ export class LoginComponent implements OnInit {
         this.isLogged = false;
         this.isLoginFail = true;
         this.errMensj = err.error.mensaje;
-        if (this.errMensj === undefined) {
-          this.errMensj = 'Usuario o Contraseña Incorrectos.';
+        if (err.error.mensaje === undefined) {
+          this.errMensj = 'Error al conectarse con el servidor';
         }
         this.loader = false;
       }

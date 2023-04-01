@@ -25,9 +25,10 @@ export class EditarProductoComponent implements OnInit {
   proveedor_valido: boolean | undefined;
   isLogged: boolean = false;
   loader: boolean = false;
-  msj: string = '';
   imgPath: string = '';
   imgUrl: string = '';
+  respuestaExitosa: boolean = false;
+  errorDeCampos: boolean = false;
   constructor(
     public router: Router,
     private producS: ProductosService,
@@ -77,9 +78,7 @@ export class EditarProductoComponent implements OnInit {
       !this.fileImg
     ) {
       this.loader = false;
-      this.msj =
-        '<p class="fw-bold text-danger">Todos los campos deben estar llenos.</p>';
-      return;
+      this.errorDeCampos = true;
     }
     const imgRef = ref(this.storage, `images/${this.fileImg.name}`);
     uploadBytes(imgRef, this.fileImg)
@@ -119,8 +118,7 @@ export class EditarProductoComponent implements OnInit {
               (respuesta) => {},
               (error) => console.error(error)
             );
-            this.msj =
-              '<p class="fw-bold text-success">Producto Actualizado</p>';
+            this.respuestaExitosa = true;
             this.loader = false;
           });
         this.loader = false;

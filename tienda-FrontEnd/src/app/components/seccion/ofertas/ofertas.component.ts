@@ -13,15 +13,23 @@ export class OfertasComponent implements OnInit {
   producXbox: any = {};
   producPc: any = {};
   producLenovo: any = {};
+  errorBack: boolean = false;
+  errorBackOfertas: boolean = false;
   public productos: Array<Producto> = [];
   ngOnInit(): void {
     this.recomendados();
     this.cargarOfertas();
   }
   cargarOfertas() {
-    this.producS.obtenerProductos().subscribe((data) => {
-      this.productos = data.slice(3, 7);
-    });
+    this.producS.obtenerProductos().subscribe(
+      (data) => {
+        this.productos = data.slice(3, 7);
+      },
+      (err) => {
+        this.errorBackOfertas = true;
+        this.router.navigate(['inicio']);
+      }
+    );
   }
   recomendados() {
     this.producS.buscarProducto(46).subscribe(
@@ -29,7 +37,7 @@ export class OfertasComponent implements OnInit {
         this.producPlay = data;
       },
       (err) => {
-        alert('Error al ver el producto');
+        this.errorBack = true;
         this.router.navigate(['inicio']);
       }
     );
@@ -38,7 +46,7 @@ export class OfertasComponent implements OnInit {
         this.producXbox = data;
       },
       (err) => {
-        alert('Error al ver el producto');
+        this.errorBack = true;
         this.router.navigate(['inicio']);
       }
     );
@@ -47,7 +55,7 @@ export class OfertasComponent implements OnInit {
         this.producPc = data;
       },
       (err) => {
-        alert('Error al ver el producto');
+        this.errorBack = true;
         this.router.navigate(['inicio']);
       }
     );
@@ -56,7 +64,7 @@ export class OfertasComponent implements OnInit {
         this.producLenovo = data;
       },
       (err) => {
-        alert('Error al ver el producto');
+        this.errorBack = true;
         this.router.navigate(['inicio']);
       }
     );

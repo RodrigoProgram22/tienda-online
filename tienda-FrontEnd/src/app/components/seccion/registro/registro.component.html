@@ -1,9 +1,12 @@
 <section class="container mx-auto my-4">
   <div class="align-self-center px-5 mx-auto">
     <div class="container-fluid bg-primario p-2">
-      <h1 class="text-center my-4 fw-bold text-dark">Crear Cuenta</h1>
+      <div class="text-center">
+        <img src="../../../assets/logo.png" class="img-fluid img-logo" />
+      </div>
+      <h1 class="text-center my-2 fw-bold text-dark">Crear Cuenta</h1>
       <form
-        class="container mx-auto my-2"
+        class="container mx-auto my-4"
         #f="ngForm"
         (ngSubmit)="onRegister()"
         novalidate
@@ -86,13 +89,20 @@
             <label class="form__label fw-bold" for="password">Contraseña</label>
           </div>
         </div>
+        <div class="container my-3 text-center" *ngIf="loader">
+          <div class="line-wobble mx-auto"></div>
+        </div>
         <p *ngIf="isRegisterFail" class="text-center text-danger mt-4 fw-bold">
           {{ errMensj }}
         </p>
-        <div class="text-center my-5">
-          <button class="mt-2 crear fw-bold" type="submit">Enviar</button>
+        <div class="text-center my-3">
+          <button class="mt-2 crear fw-bold" type="submit">Crear cuenta</button>
         </div>
       </form>
+      <p class="text-center">
+        Si ya tienes una cuenta ingresa aquí
+        <a class="text-primario" routerLink="/login">Iniciar Sesión</a>
+      </p>
     </div>
   </div>
 </section>

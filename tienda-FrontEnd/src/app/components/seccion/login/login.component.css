@@ -1,3 +1,13 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(126, 52, 247);
+}
+.img-logo {
+  width: 90px;
+  object-fit: contain;
+}
 /* login */
 .bg-primario {
   max-width: 400px;

@@ -12,6 +12,7 @@ export class ProductosComponent implements OnInit {
   etiquetas: any[] = [];
   nombreBusqueda: string = '';
   loader: boolean = false;
+  errorBack: boolean = false;
   constructor(private productoS: ProductosService) {}
   ngOnInit(): void {
     this.cargarProductos();
@@ -30,23 +31,29 @@ export class ProductosComponent implements OnInit {
   }
   cargarProductos() {
     this.loader = true;
-    this.productoS.obtenerProductos().subscribe((data) => {
-      this.productos = data;
-      this.etiquetas = [];
-      // Iterar por cada producto
-      this.productos.forEach((producto) => {
-        // Separar las etiquetas en un array
-        const etiquetasArray = producto.etiquetas.split(', ');
-        // Agregar las etiquetas del producto al array de etiquetas
-        etiquetasArray.forEach((etiqueta) => {
-          if (!this.etiquetas.includes(etiqueta)) {
-            this.etiquetas.push(etiqueta);
-          }
+    this.productoS.obtenerProductos().subscribe(
+      (data) => {
+        this.productos = data;
+        this.etiquetas = [];
+        // Iterar por cada producto
+        this.productos.forEach((producto) => {
+          // Separar las etiquetas en un array
+          const etiquetasArray = producto.etiquetas.split(', ');
+          // Agregar las etiquetas del producto al array de etiquetas
+          etiquetasArray.forEach((etiqueta) => {
+            if (!this.etiquetas.includes(etiqueta)) {
+              this.etiquetas.push(etiqueta);
+            }
+          });
+          this.loader = false;
         });
         this.loader = false;
-      });
-      this.loader = false;
-    });
+      },
+      (error) => {
+        this.loader = false;
+        this.errorBack = true;
+      }
+    );
   }
   celularFiltro() {
     this.productos = this.productos.filter((producto) => {

@@ -1,7 +1,13 @@
 <section class="my-4">
   <div class="container mx-auto p-3">
     <h3>Te puede interesar</h3>
-    <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-auto">
+    <div class="my-3" *ngIf="errorBack">
+      <p class="text-danger">Error al cargar los datos</p>
+    </div>
+    <div
+      class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-auto"
+      *ngIf="!errorBack"
+    >
       <div class="col text-center card mx-auto">
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
@@ -49,7 +55,13 @@
 <section class="my-4">
   <div class="container mx-auto p-3">
     <h3>Ofertas del mes</h3>
-    <div class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto">
+    <div class="my-3" *ngIf="errorBackOfertas">
+      <p class="text-danger">Error al cargar los datos</p>
+    </div>
+    <div
+      class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto"
+      *ngIf="!errorBackOfertas"
+    >
       <div class="col text-center" *ngFor="let producto of productos">
         <div class="card-ofertas mx-auto">
           <div class="container text-center p-2">
@@ -63,17 +75,14 @@
           <hr />
           <div class="card-body">
             <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
-              <h5 class="col fw-bold text-center text-md-end">
+              <h5 class="col text-center text-md-end">
                 ${{ producto.precio }}
               </h5>
-              <p class="col text-success text-center text-md-start my-0">
+              <p class="col text-success text-center text-md-start my-auto">
                 30% OFF
               </p>
             </div>
-            <a
-              routerLink="/ver-producto"
-              class="text-success text-start fw-bold"
-            >
+            <a routerLink="/ver-producto" class="text-success text-start">
               Envió Gratis
             </a>
           </div>
@@ -86,7 +95,13 @@
 <section class="my-4">
   <div class="container mx-auto p-3">
     <h3>Descubrí Más</h3>
-    <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-auto">
+    <div class="my-3" *ngIf="errorBack">
+      <p class="text-danger">Error al cargar los datos</p>
+    </div>
+    <div
+      class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-auto"
+      *ngIf="!errorBack"
+    >
       <div class="col text-center card-3 p-2 mx-auto">
         <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">

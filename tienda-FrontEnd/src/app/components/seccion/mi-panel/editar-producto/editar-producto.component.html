@@ -136,7 +136,33 @@
           <div class="container my-3 text-center" *ngIf="loader">
             <div class="line-wobble mx-auto"></div>
           </div>
-          <div [innerHTML]="msj"></div>
+          <div
+            class="alert alert-success alert-dismissible fade show"
+            role="alert"
+            *ngIf="respuestaExitosa"
+          >
+            <strong>Exito!</strong> El producto se agrego correctamente.
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+            *ngIf="errorDeCampos"
+          >
+            <strong>Error!</strong> Asegúrate de que todos los campos estén
+            completos
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
+          </div>
           <div>
             <button type="submit" class="enviar fw-bold">
               Editar Producto

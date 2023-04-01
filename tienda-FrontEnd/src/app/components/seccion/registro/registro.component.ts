@@ -10,8 +10,8 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
-  isRegister = false;
-  isRegisterFail = false;
+  isRegister: boolean = false;
+  isRegisterFail: boolean = false;
   nuevoUsuario!: NuevoUsuario;
   nombre: string = '';
   nombreUsuario!: string;
@@ -21,7 +21,8 @@ export class RegistroComponent implements OnInit {
   ubicacion!: string;
   roles: string[] = [];
   errMensj!: string;
-  isLogged = false;
+  isLogged: boolean = false;
+  loader: boolean = false;
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
@@ -35,6 +36,7 @@ export class RegistroComponent implements OnInit {
     }
   }
   onRegister() {
+    this.loader = true;
     this.nuevoUsuario = new NuevoUsuario(
       this.nombre,
       this.nombreUsuario,
@@ -45,15 +47,19 @@ export class RegistroComponent implements OnInit {
     );
     this.authService.nuevo(this.nuevoUsuario).subscribe(
       (data) => {
+        this.loader = false;
         this.isRegister = true;
         this.isRegisterFail = false;
         this.router.navigate(['login']);
-        alert('Registrado correctamente.');
       },
       (err) => {
+        this.loader = false;
         this.isRegister = false;
         this.isRegisterFail = true;
         this.errMensj = err.error.mensaje;
+        if (err.error.mensaje === undefined) {
+          this.errMensj = 'Error al conectarse con el servidor';
+        }
       }
     );
   }

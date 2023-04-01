@@ -24,7 +24,8 @@ export class VenderComponent implements OnInit {
   imgUrl: string = '';
   isLogged: boolean = false;
   loader: boolean = false;
-  msj: any = '';
+  errorDeCampos: boolean = false;
+  respuestaExitosa: boolean = false;
   constructor(
     public router: Router,
     private producService: ProductosService,
@@ -50,9 +51,7 @@ export class VenderComponent implements OnInit {
 
     if (!nombre || !etiquetas || !descripcion || !precio || !cantidad) {
       this.loader = false;
-      this.msj =
-        '<p class="fw-bold text-danger">Todos los campos deben estar llenos.</p>';
-      return;
+      this.errorDeCampos = true;
     }
     const imgRef = ref(this.storage, `images/${this.fileImg.name}`);
     uploadBytes(imgRef, this.fileImg)
@@ -103,8 +102,7 @@ export class VenderComponent implements OnInit {
                 this.loader = false;
               }
             );
-            this.msj =
-              '<p class="fw-bold text-success">El producto se agregó correctamente.</p>';
+            this.respuestaExitosa = true;
             this.loader = false;
           });
         this.loader = false;
