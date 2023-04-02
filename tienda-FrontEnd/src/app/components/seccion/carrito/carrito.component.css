@@ -5,6 +5,9 @@ a:hover {
   color: var(--primary);
   text-decoration: none;
 }
+.article {
+  min-height: 100vh;
+}
 .card-ofertas {
   width: 500px;
   box-shadow: 0.3em 0.3em 0.7em var(--primary);

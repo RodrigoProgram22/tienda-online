@@ -5,6 +5,9 @@
   background-color: #9e6eff;
   color: white;
 }
+article {
+  min-height: 100vh;
+}
 .input {
   width: 100%;
   line-height: 28px;

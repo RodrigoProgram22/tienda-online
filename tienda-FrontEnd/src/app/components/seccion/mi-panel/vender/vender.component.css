@@ -5,6 +5,9 @@ a:hover {
   /* color: var(--primary); */
   text-decoration: none;
 }
+article {
+  min-height: 100vh;
+}
 .imgPrevi {
   width: auto;
   height: 190px;

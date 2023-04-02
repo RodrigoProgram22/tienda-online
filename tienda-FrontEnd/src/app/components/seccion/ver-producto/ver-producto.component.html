@@ -1,35 +1,34 @@
-<section>
-  <div class="container my-3">
-    <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-2">
-      <div class="col text-center">
-        <img [src]="produc.imagen" class="img-fluid imgSombra" />
+<article class="container my-3">
+  <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-2">
+    <div class="col text-center">
+      <img [src]="produc.imagen" class="img-fluid imgSombra" />
+    </div>
+    <div class="col-4 detalles">
+      <h2 class="fw-bold text-center text-md-start">{{ produc.nombre }}</h2>
+      <p class="fw-bold">Proveedor: {{ produc.proveedor?.nombreUsuario }}</p>
+      <h5 class="fw-bold text-primario">${{ produc.precio }}</h5>
+      <p class="fw-bold text-success">Envió Gratis</p>
+      <p class="fw-bold">Cantidad: {{ produc.cantidad }}</p>
+      <p class="fw-bold">Teléfono: {{ produc.proveedor?.telefono }}</p>
+      <p class="fw-bold">Etiquetas: {{ produc.etiquetas }}</p>
+      <p class="fw-bold">Descripción: {{ produc.descripcion }}</p>
+      <div class="text-start my-5">
+        <button class="mt-2 enviar fw-bold" type="submit" (click)="comprar()">
+          Comprar
+        </button>
+        <button
+          class="mt-2 mx-3 enviar fw-bold"
+          type="submit"
+          (click)="agregarCarrito()"
+        >
+          Agregar al Carrito
+        </button>
       </div>
-      <div class="col-4 detalles">
-        <h2 class="fw-bold text-center text-md-start">{{ produc.nombre }}</h2>
-        <p class="text-primario fw-bold">Etiquetas: {{ produc.etiquetas }}</p>
-        <p class="fw-bold">${{ produc.precio }}</p>
-        <p class="fw-bold">Cantidad: {{ produc.cantidad }}</p>
-        <p class="fw-bold">Proveedor: {{ produc.proveedor?.nombreUsuario }}</p>
-        <p class="fw-bold text-success">Envió Gratis</p>
-        <p class="fw-bold">Descripcion: {{ produc.descripcion }}</p>
-        <div class="text-start my-5">
-          <button class="mt-2 enviar fw-bold" type="submit" (click)="comprar()">
-            Comprar
-          </button>
-          <button
-            class="mt-2 mx-3 enviar fw-bold"
-            type="submit"
-            (click)="agregarCarrito()"
-          >
-            Agregar al Carrito
-          </button>
-        </div>
-        <div [innerHTML]="msjCarrito"></div>
-      </div>
+      <div [innerHTML]="msjCarrito"></div>
     </div>
   </div>
-</section>
-<section class="my-4">
+</article>
+<article class="my-4">
   <div class="container mx-auto p-3">
     <h3>Recomendados para ti.</h3>
     <div class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto">
@@ -59,4 +58,4 @@
       </div>
     </div>
   </div>
-</section>
+</article>

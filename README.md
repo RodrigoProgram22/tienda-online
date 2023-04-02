@@ -3,7 +3,7 @@
 Este proyecto es una tienda en línea creada con fines de práctica y para agregar a mi portfolio de desarrollo web. Utilizando tecnologías como Angular, Bootstrap, Java, MySql, etc. Creé una tienda virtual donde los usuarios pueden navegar por una amplia selección de productos tecnológicos y realizar compras en línea de manera segura y fácil.
 Este proyecto es una muestra de mi habilidad para diseñar y desarrollar aplicaciones web completas utilizando tecnologías modernas y es un ejemplo de mi capacidad para crear soluciones elegantes y efectivas para problemas del mundo real.
 
-Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cli) versión 13.2.5.
 
 ## Ver proyecto
 
@@ -11,18 +11,22 @@ Ejecute `ng serve` para iniciar un servidor de desarrollo. Navegue a `http://loc
 
 Ejecute `ng build` para compilar el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`.
 
+- Para ejecutar el proyecto del BackEnd, primero es necesario tener instalado Java y Maven en su computadora. Descargue el proyecto del BackEnd desde el repositorio y abra el proyecto en su IDE favorito.
+
+- Para ejecutar correctamente la aplicación, es necesario tener una base de datos MySQL en ejecución en su computadora. Si ya tiene una base de datos instalada en su computadora, asegúrese de que esté en ejecución antes de ejecutar la aplicación del BackEnd.
+
 ## Estado del proyecto
 
-Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta ahora, hemos implementado las siguientes funcionalidades:
+¡El proyecto de la tienda en línea ha sido completado! Se han implementado las siguientes funcionalidades:
 
 - Página de inicio de la tienda, donde se muestran los productos más destacados y algunos en oferta.
-- Barra de navegación que permitirá buscar productos al los usuarios.
+- Barra de navegación que permitirá buscar productos a los usuarios.
 - Pie de página que contiene más información sobre los contacto y redes sociales.
 - Páginas de detalle de productos, donde los usuarios pueden ver la información detallada del producto, incluyendo imágenes, descripciones y precios.
 - Un carrito de compras básico, donde los usuarios pueden agregar productos y ver el total de la compra.
 - Agregar una sección donde se puedan ver todos los productos.
 - Sección para ver el perfil del usuario.
-- Agregar un apartado para vender un productos.
+- Agregar un apartado para vender un producto.
 - Página para ver productos en venta.
 - Página de Ayuda provisional, para responder algunas preguntas sobre la página.
 - Crear Diagrama de clases para la lógica del BackEnd.
@@ -35,6 +39,8 @@ Actualmente, la tienda en línea está en una fase de desarrollo activa. Hasta a
 - Mejorar el diseño del FrontEnd cambiando la fuente, mejorar la vista en más dispositivos, etc.
 - Implementar un sistema de búsqueda de productos para facilitar la navegación de los usuarios.
 - Mejorar la función de agregar productos, añadiendo imágenes del producto.
+
+Se considera que el proyecto está completo, aunque no se descarta la posibilidad de añadir más funcionalidades en el futuro para mejorar la experiencia de los usuarios.
 
 ## Tecnologías utilizadas
 

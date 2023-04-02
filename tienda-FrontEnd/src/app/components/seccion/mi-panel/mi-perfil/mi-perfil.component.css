@@ -16,6 +16,9 @@
   color: #0d0c22;
   transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+.body {
+  min-height: 100vh;
+}
 /* boton enviar para datos */
 .enviar {
   --color: var(--primary);

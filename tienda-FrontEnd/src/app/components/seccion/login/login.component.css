@@ -8,6 +8,9 @@ a:hover {
   width: 90px;
   object-fit: contain;
 }
+section {
+  min-height: 100vh;
+}
 /* login */
 .bg-primario {
   max-width: 400px;

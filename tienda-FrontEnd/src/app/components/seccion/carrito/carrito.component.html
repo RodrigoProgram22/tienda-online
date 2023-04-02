@@ -1,80 +1,85 @@
-<section class="m-5 p-2" *ngIf="!isLogged">
-  <div class="card-ofertas mx-auto">
-    <div class="container text-center p-2">
-      <h2>Hola! Para agregar al carrito, ingresá a tu cuenta</h2>
-    </div>
-    <div class="card-body">
-      <div class="text-center my-4">
-        <a routerLink="/registro">
-          <button class="my-2 crear fw-bold">Creá tu cuenta</button>
-        </a>
-        <div class="p-4">
-          <a class="fw-bold text-center text-primario mb-1" routerLink="/login">
-            Ingresar
+<article>
+  <section class="m-5 p-2" *ngIf="!isLogged">
+    <div class="card-ofertas mx-auto">
+      <div class="container text-center p-2">
+        <h2>Hola! Para agregar al carrito, ingresá a tu cuenta</h2>
+      </div>
+      <div class="card-body">
+        <div class="text-center my-4">
+          <a routerLink="/registro">
+            <button class="my-2 crear fw-bold">Creá tu cuenta</button>
           </a>
+          <div class="p-4">
+            <a
+              class="fw-bold text-center text-primario mb-1"
+              routerLink="/login"
+            >
+              Ingresar
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section *ngIf="isLogged">
-  <div class="m-1 p-1 m-md-5 p-md-5 carrito">
-    <h5>Tu carrito ({{ productos.length }})</h5>
-    <hr />
-    <div class="p-5 m-5" *ngIf="productosVacio">
-      <div class="text-center">
-        <p class="fw-bold">Tu Carrito Está Vacío</p>
-        <p>Comienza a llenarlo con nuestros productos</p>
-        <a routerLink="/productos">
-          <button class="my-2 crear fw-bold">Ir de compras</button>
-        </a>
-      </div>
-    </div>
-    <div class="container" *ngIf="true">
-      <div
-        class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2"
-        *ngFor="let produc of productos"
-      >
-        <div class="col text-center">
-          <a routerLink="/ver-producto">
-            <img [src]="produc.imagen" class="img-fluid img-carrito" />
-          </a>
-        </div>
-        <div class="col text-center">
-          <p class="fw-bold">{{ produc.nombre }}</p>
-        </div>
-        <div class="col text-center">
-          <h3>$ {{ produc.precio }}</h3>
-          <i
-            (click)="eliminar(produc.id_producto)"
-            class="bi bi-x-circle text-primario"
-            style="font-size: 30px; cursor: pointer"
-          ></i>
-        </div>
-      </div>
+  </section>
+  <section *ngIf="isLogged">
+    <div class="m-1 p-1 m-md-5 p-md-5 carrito">
+      <h5>Tu carrito ({{ productos.length }})</h5>
       <hr />
-      <div *ngIf="!productosVacio">
-        <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
-          <div class="col text-center"></div>
-          <div class="col text-end">
-            <p class="fw-bold"></p>
+      <div class="p-5 m-5" *ngIf="productosVacio">
+        <div class="text-center">
+          <p class="fw-bold">Tu Carrito Está Vacío</p>
+          <p>Comienza a llenarlo con nuestros productos</p>
+          <a routerLink="/productos">
+            <button class="my-2 crear fw-bold">Ir de compras</button>
+          </a>
+        </div>
+      </div>
+      <div class="container" *ngIf="true">
+        <div
+          class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2"
+          *ngFor="let produc of productos"
+        >
+          <div class="col text-center">
+            <a routerLink="/ver-producto">
+              <img [src]="produc.imagen" class="img-fluid img-carrito" />
+            </a>
           </div>
           <div class="col text-center">
-            <h3>Total : $ {{ suma }}</h3>
+            <p class="fw-bold">{{ produc.nombre }}</p>
+          </div>
+          <div class="col text-center">
+            <h3>$ {{ produc.precio }}</h3>
+            <i
+              (click)="eliminar(produc.id_producto)"
+              class="bi bi-x-circle text-primario"
+              style="font-size: 30px; cursor: pointer"
+            ></i>
           </div>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
-          <div class="col text-center"></div>
-          <div class="col text-end">
-            <p class="fw-bold"></p>
+        <hr />
+        <div *ngIf="!productosVacio">
+          <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
+            <div class="col text-center"></div>
+            <div class="col text-end">
+              <p class="fw-bold"></p>
+            </div>
+            <div class="col text-center">
+              <h3>Total : $ {{ suma }}</h3>
+            </div>
           </div>
-          <div class="col text-center">
-            <button class="my-2 crear fw-bold" (click)="comprar()">
-              Continuar Compra
-            </button>
+          <div class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2">
+            <div class="col text-center"></div>
+            <div class="col text-end">
+              <p class="fw-bold"></p>
+            </div>
+            <div class="col text-center">
+              <button class="my-2 crear fw-bold" (click)="comprar()">
+                Continuar Compra
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</article>

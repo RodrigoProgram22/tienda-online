@@ -1,188 +1,193 @@
-<section class="m-5 p-3" *ngIf="!isLogged">
-  <div class="card-ofertas mx-auto">
-    <div class="container text-center p-2">
-      <h2>Hola! Primero debes ingresar a tu cuenta</h2>
-    </div>
-    <div class="card-body">
-      <div class="text-center my-4">
-        <a routerLink="/registro">
-          <button class="my-2 crear fw-bold">Creá tu cuenta</button>
-        </a>
-        <div class="p-4">
-          <a class="fw-bold text-center text-primario mb-1" routerLink="/login">
-            Ingresar
+<article>
+  <section class="m-5 p-3" *ngIf="!isLogged">
+    <div class="card-ofertas mx-auto">
+      <div class="container text-center p-2">
+        <h2>Hola! Primero debes ingresar a tu cuenta</h2>
+      </div>
+      <div class="card-body">
+        <div class="text-center my-4">
+          <a routerLink="/registro">
+            <button class="my-2 crear fw-bold">Creá tu cuenta</button>
           </a>
+          <div class="p-4">
+            <a
+              class="fw-bold text-center text-primario mb-1"
+              routerLink="/login"
+            >
+              Ingresar
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section *ngIf="isLogged">
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="list-group">
-          <a
-            class="list-group-item list-group-item-action bg-primario text-light fw-bold"
-          >
-            Panel de Control
-          </a>
-          <a
-            routerLink="/mi-perfil"
-            class="list-group-item list-group-item-action"
-            [ngClass]="{ 'active-link': router.url === '/mi-perfil' }"
-            >Mi Perfil</a
-          >
-          <a
-            routerLink="/agregar-producto"
-            class="list-group-item list-group-item-action"
-            [ngClass]="{ 'active-link': router.url === '/agregar-producto' }"
-          >
-            Agregar Producto
-          </a>
-          <a
-            routerLink="/mis-productos"
-            class="list-group-item list-group-item-action"
-            [ngClass]="{ 'active-link': router.url === '/mis-productos' }"
-          >
-            Mis Productos
-          </a>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <h3 class="my-3">Agregar Producto</h3>
-        <p>
-          Tu producto será publicado para que cualquier usuario lo pueda ver.
-        </p>
-        <hr />
-        <form #f="ngForm" (submit)="crearProducto(f)">
-          <div class="my-4">
-            <label for="nombreProducto" class="fw-bold"
-              >Nombre del Producto</label
-            ><br />
-            <input
-              type="text"
-              class="input"
-              id="nombreProducto"
-              name="nombreProducto"
-              placeholder="Ingrese el nombre del producto"
-              ngModel
-              required
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="etiquetasProducto" class="fw-bold"
-              >Etiquetas del Producto</label
-            ><br />
-            <input
-              type="text"
-              class="input"
-              id="etiquetasProducto"
-              name="etiquetasProducto"
-              ngModel
-              required
-              placeholder="Ingrese las etiquetas del producto (separadas por comas)"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="descripcionProducto" class="fw-bold"
-              >Descripción del Producto</label
-            ><br />
-            <textarea
-              class="input"
-              id="descripcionProducto"
-              name="descripcionProducto"
-              ngModel
-              required
-              rows="3"
-              placeholder="Ingrese una descripción del producto"
-            ></textarea>
-          </div>
-          <div class="form-group my-4">
-            <label for="precioProducto" class="fw-bold"
-              >Precio del Producto</label
-            ><br />
-            <input
-              type="number"
-              class="input"
-              id="precioProducto"
-              name="precioProducto"
-              ngModel
-              required
-              placeholder="Ingrese el precio del producto"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="cantidadProducto" class="fw-bold"
-              >Cantidad de Productos</label
-            ><br />
-            <input
-              type="number"
-              class="input"
-              id="cantidadProducto"
-              name="cantidadProducto"
-              ngModel
-              required
-              placeholder="Ingrese la cantidad de Stock"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="imagenProducto" class="fw-bold">
-              Imagen del Producto (.jpg):
-            </label>
-            <input
-              type="file"
-              class="form-control-file"
-              id="imagenProducto"
-              accept=".jpg, .jpeg"
-              (change)="onFileSelected($event)"
-            />
-          </div>
-          <div *ngIf="previsualizacion">
-            <p>Vista previa de la imagen antes de enviarla.</p>
-            <img
-              [src]="previsualizacion"
-              alt="imagenProducto"
-              class="imgPrevi mb-3"
-            />
-          </div>
-          <div class="container my-3 text-center" *ngIf="loader">
-            <div class="line-wobble mx-auto"></div>
-          </div>
-          <div
-            class="alert alert-success alert-dismissible fade show"
-            role="alert"
-            *ngIf="respuestaExitosa"
-          >
-            <strong>Exito!</strong> El producto se agrego correctamente.
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div
-            class="alert alert-warning alert-dismissible fade show"
-            role="alert"
-            *ngIf="errorDeCampos"
-          >
-            <strong>Error!</strong> Asegúrate de que todos los campos estén
-            completos
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div>
-            <button type="submit" class="enviar fw-bold">
+  </section>
+  <section *ngIf="isLogged">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="list-group">
+            <a
+              class="list-group-item list-group-item-action bg-primario text-light fw-bold"
+            >
+              Panel de Control
+            </a>
+            <a
+              routerLink="/mi-perfil"
+              class="list-group-item list-group-item-action"
+              [ngClass]="{ 'active-link': router.url === '/mi-perfil' }"
+              >Mi Perfil</a
+            >
+            <a
+              routerLink="/agregar-producto"
+              class="list-group-item list-group-item-action"
+              [ngClass]="{ 'active-link': router.url === '/agregar-producto' }"
+            >
               Agregar Producto
-            </button>
+            </a>
+            <a
+              routerLink="/mis-productos"
+              class="list-group-item list-group-item-action"
+              [ngClass]="{ 'active-link': router.url === '/mis-productos' }"
+            >
+              Mis Productos
+            </a>
           </div>
-        </form>
+        </div>
+        <div class="col-md-9">
+          <h3 class="my-3">Agregar Producto</h3>
+          <p>
+            Tu producto será publicado para que cualquier usuario lo pueda ver.
+          </p>
+          <hr />
+          <form #f="ngForm" (submit)="crearProducto(f)">
+            <div class="my-4">
+              <label for="nombreProducto" class="fw-bold"
+                >Nombre del Producto</label
+              ><br />
+              <input
+                type="text"
+                class="input"
+                id="nombreProducto"
+                name="nombreProducto"
+                placeholder="Ingrese el nombre del producto"
+                ngModel
+                required
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="etiquetasProducto" class="fw-bold"
+                >Etiquetas del Producto</label
+              ><br />
+              <input
+                type="text"
+                class="input"
+                id="etiquetasProducto"
+                name="etiquetasProducto"
+                ngModel
+                required
+                placeholder="Ingrese las etiquetas del producto (separadas por comas)"
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="descripcionProducto" class="fw-bold"
+                >Descripción del Producto</label
+              ><br />
+              <textarea
+                class="input"
+                id="descripcionProducto"
+                name="descripcionProducto"
+                ngModel
+                required
+                rows="3"
+                placeholder="Ingrese una descripción del producto"
+              ></textarea>
+            </div>
+            <div class="form-group my-4">
+              <label for="precioProducto" class="fw-bold"
+                >Precio del Producto</label
+              ><br />
+              <input
+                type="number"
+                class="input"
+                id="precioProducto"
+                name="precioProducto"
+                ngModel
+                required
+                placeholder="Ingrese el precio del producto"
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="cantidadProducto" class="fw-bold"
+                >Cantidad de Productos</label
+              ><br />
+              <input
+                type="number"
+                class="input"
+                id="cantidadProducto"
+                name="cantidadProducto"
+                ngModel
+                required
+                placeholder="Ingrese la cantidad de Stock"
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="imagenProducto" class="fw-bold">
+                Imagen del Producto (.jpg):
+              </label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="imagenProducto"
+                accept=".jpg, .jpeg"
+                (change)="onFileSelected($event)"
+              />
+            </div>
+            <div *ngIf="previsualizacion">
+              <p>Vista previa de la imagen antes de enviarla.</p>
+              <img
+                [src]="previsualizacion"
+                alt="imagenProducto"
+                class="imgPrevi mb-3"
+              />
+            </div>
+            <div class="container my-3 text-center" *ngIf="loader">
+              <div class="line-wobble mx-auto"></div>
+            </div>
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+              *ngIf="respuestaExitosa"
+            >
+              <strong>Exito!</strong> El producto se agrego correctamente.
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div
+              class="alert alert-warning alert-dismissible fade show"
+              role="alert"
+              *ngIf="errorDeCampos"
+            >
+              <strong>Error!</strong> Asegúrate de que todos los campos estén
+              completos
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div>
+              <button type="submit" class="enviar fw-bold">
+                Agregar Producto
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</article>

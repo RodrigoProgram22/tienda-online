@@ -5,6 +5,9 @@ a:hover {
   /* color: var(--primary); */
   text-decoration: none;
 }
+article {
+  min-height: 100vh;
+}
 .bg-primario {
   background-color: var(--primary);
 }
