@@ -29,7 +29,7 @@ a {
     font-size: 20px;
   }
   .active-icon {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 @media screen and (max-width: 573px) {
@@ -41,12 +41,12 @@ a {
     border: var(--primary) 0.1em solid;
   }
   .titulo {
+    font-size: 15px;
+  }
+  p {
     font-size: 10px;
   }
   .active-icon {
-    font-size: 20px;
-  }
-  a {
-    font-size: 10px;
+    font-size: 24px;
   }
 }

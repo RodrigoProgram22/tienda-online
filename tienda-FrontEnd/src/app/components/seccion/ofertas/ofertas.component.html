@@ -1,6 +1,6 @@
 <article class="my-4">
   <div class="container mx-auto p-3">
-    <h3>Te puede interesar</h3>
+    <h3>Te Puede Interesar</h3>
     <div class="my-3" *ngIf="errorBack">
       <p class="text-danger">Error al cargar los datos</p>
     </div>
@@ -9,9 +9,9 @@
       *ngIf="!errorBack"
     >
       <div class="col text-center card mx-auto">
-        <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
+        <div class="row row-cols-2 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
-            <h4 class="text-center text-md-start">{{ producPlay.nombre }}</h4>
+            <h4 class="text-start">{{ producPlay.nombre }}</h4>
             <h5>${{ producPlay.precio }}</h5>
             <h5 class="text-primario">Hasta un 50% OFF</h5>
             <a
@@ -29,9 +29,9 @@
         </div>
       </div>
       <div class="col text-center card-2 p-2 mx-auto">
-        <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
+        <div class="row row-cols-2 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
-            <h4 class="text-center text-md-start">{{ producXbox.nombre }}</h4>
+            <h4 class="text-start">{{ producXbox.nombre }}</h4>
             <h5>${{ producXbox.precio }}</h5>
             <h5 class="text-primario">Hasta un 70% OFF</h5>
             <a
@@ -54,7 +54,7 @@
 </article>
 <article class="my-4">
   <div class="container mx-auto p-3">
-    <h3>Ofertas del mes</h3>
+    <h3>Ofertas Del Mes</h3>
     <div class="my-3" *ngIf="errorBackOfertas">
       <p class="text-danger">Error al cargar los datos</p>
     </div>
@@ -90,7 +90,11 @@
       </div>
     </div>
   </div>
-  <hr class="mx-5" size="5" />
+</article>
+<article class="my-4">
+  <a routerLink="/productos">
+    <img src="../../../../assets/img/oferta.jpg" class="img-fluid imgOfert" />
+  </a>
 </article>
 <article class="my-4">
   <div class="container mx-auto p-3">
@@ -103,9 +107,9 @@
       *ngIf="!errorBack"
     >
       <div class="col text-center card-3 p-2 mx-auto">
-        <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
+        <div class="row row-cols-2 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
-            <h4 class="text-center text-md-start">
+            <h4 class="text-start">
               {{ producPc.nombre }}
             </h4>
             <h5>${{ producPc.precio }}</h5>
@@ -124,9 +128,9 @@
         </div>
       </div>
       <div class="col text-center card-3 p-2 mx-auto">
-        <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
+        <div class="row row-cols-2 row-cols-md-2 g-4 align-items-center">
           <div class="col text-start pt-2">
-            <h4 class="text-center text-md-start">
+            <h4 class="text-start">
               {{ producLenovo.nombre }}
             </h4>
             <h5>${{ producLenovo.precio }}</h5>

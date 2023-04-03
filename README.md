@@ -7,9 +7,9 @@ Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cl
 
 ## Ver proyecto
 
-Ejecute `ng serve` para iniciar un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
+- Ejecute `ng serve` para iniciar un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
 
-Ejecute `ng build` para compilar el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`.
+- Ejecute `ng build` para compilar el proyecto. Los artefactos de compilación se almacenarán en el directorio `dist/`.
 
 - Para ejecutar el proyecto del BackEnd, primero es necesario tener instalado Java y Maven en su computadora. Descargue el proyecto del BackEnd desde el repositorio y abra el proyecto en su IDE favorito.
 
