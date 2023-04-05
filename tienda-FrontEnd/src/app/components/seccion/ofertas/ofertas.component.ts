@@ -23,7 +23,7 @@ export class OfertasComponent implements OnInit {
   cargarOfertas() {
     this.producS.obtenerProductos().subscribe(
       (data) => {
-        this.productos = data.slice(4, 7);
+        this.productos = data.slice(4, 8);
       },
       (err) => {
         this.errorBackOfertas = true;

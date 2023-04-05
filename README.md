@@ -5,6 +5,10 @@ Este proyecto es una muestra de mi habilidad para diseñar y desarrollar aplicac
 
 Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cli) versión 13.2.5.
 
+## Visualización
+
+Puedes visualizar MiTec en línea a través de la página web hospedada en Netlify: https://mi-tec.netlify.app. ¡No dudes en echarle un vistazo!
+
 ## Ver proyecto
 
 - Ejecute `ng serve` para iniciar un servidor de desarrollo. Navegue a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambia alguno de los archivos de origen.
