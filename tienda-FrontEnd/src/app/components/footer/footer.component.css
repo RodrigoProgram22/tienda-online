@@ -4,15 +4,24 @@ a {
 a:hover {
   color: var(--primary);
   text-decoration: none;
+  transform: scale(1.1);
 }
 .icon-footer {
   font-size: 25px;
   transition: all 0.5s;
+  color: var(--primary);
 }
 .icon-footer:hover {
+  opacity: 0.5;
   transform: scale(1.1);
 }
 .logoFooter {
+  width: 50px;
+  object-fit: contain;
+  transition: all 0.5s;
+}
+.logoFooter:hover {
+  opacity: 0.5;
   width: 50px;
   object-fit: contain;
 }

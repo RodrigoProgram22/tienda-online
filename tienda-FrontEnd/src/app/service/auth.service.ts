@@ -9,7 +9,8 @@ import { Usuario } from '../model/Usuario';
   providedIn: 'root',
 })
 export class AuthService {
-  authURL = 'http://localhost:8080/auth/';
+  private authURL = 'https://backend-mitec-api-production.up.railway.app/auth/';
+  // authURL = 'http://localhost:8080/auth/';
   constructor(private http: HttpClient) {}
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {

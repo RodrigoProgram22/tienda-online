@@ -7,8 +7,8 @@ import { Producto } from '../model/Producto';
   providedIn: 'root',
 })
 export class ProductosService {
-  private url = 'http://localhost:8080'; // URL de la API
-
+  // private url = 'http://localhost:8080'; // URL de la API
+  private url = 'https://backend-mitec-api-production.up.railway.app'; // URL de la API
   constructor(private http: HttpClient) {}
 
   // Obtener todos los productos

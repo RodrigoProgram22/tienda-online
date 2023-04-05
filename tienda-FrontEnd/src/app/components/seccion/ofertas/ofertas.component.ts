@@ -23,7 +23,7 @@ export class OfertasComponent implements OnInit {
   cargarOfertas() {
     this.producS.obtenerProductos().subscribe(
       (data) => {
-        this.productos = data.slice(3, 7);
+        this.productos = data.slice(4, 7);
       },
       (err) => {
         this.errorBackOfertas = true;
@@ -32,7 +32,7 @@ export class OfertasComponent implements OnInit {
     );
   }
   recomendados() {
-    this.producS.buscarProducto(46).subscribe(
+    this.producS.buscarProducto(1).subscribe(
       (data) => {
         this.producPlay = data;
       },
@@ -41,7 +41,7 @@ export class OfertasComponent implements OnInit {
         this.router.navigate(['inicio']);
       }
     );
-    this.producS.buscarProducto(47).subscribe(
+    this.producS.buscarProducto(2).subscribe(
       (data) => {
         this.producXbox = data;
       },
@@ -50,7 +50,7 @@ export class OfertasComponent implements OnInit {
         this.router.navigate(['inicio']);
       }
     );
-    this.producS.buscarProducto(48).subscribe(
+    this.producS.buscarProducto(3).subscribe(
       (data) => {
         this.producPc = data;
       },
@@ -59,7 +59,7 @@ export class OfertasComponent implements OnInit {
         this.router.navigate(['inicio']);
       }
     );
-    this.producS.buscarProducto(49).subscribe(
+    this.producS.buscarProducto(4).subscribe(
       (data) => {
         this.producLenovo = data;
       },
