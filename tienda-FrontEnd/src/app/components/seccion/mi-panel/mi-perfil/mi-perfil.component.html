@@ -1,6 +1,6 @@
-<article class="container mt-4 body">
-  <div class="row">
-    <div class="col-md-3">
+<section class="container mt-4 body">
+  <article class="row">
+    <nav class="col-md-3">
       <div class="list-group">
         <a
           class="list-group-item list-group-item-action bg-primario text-light fw-bold"
@@ -28,22 +28,26 @@
           Mis Productos
         </a>
       </div>
-    </div>
+    </nav>
     <div class="col-md-9">
-      <h3 class="my-3">Mi Perfil</h3>
+      <header>
+        <h3 class="my-3">Mi Perfil</h3>
+      </header>
       <hr />
-      <div class="row">
-        <div class="col-md-6">
-          <p><strong>Nombre Usuario:</strong> {{ usuario.nombreUsuario }}</p>
-          <p><strong>Nombre Completo:</strong> {{ usuario.nombreApellido }}</p>
-          <p><strong>Email:</strong> {{ usuario.email }}</p>
+      <main>
+        <div class="row">
+          <div class="col-md-6">
+            <p><strong>Nombre Usuario:</strong> {{ usuario.nombreUsuario }}</p>
+            <p><strong>Nombre Completo:</strong> {{ usuario.nombreApellido }}</p>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+          </div>
+          <div class="col-md-6">
+            <p><strong>País:</strong> Argentina</p>
+            <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+            <p><strong>Ubicación:</strong> {{ usuario.ubicacion }}</p>
+          </div>
         </div>
-        <div class="col-md-6">
-          <p><strong>País:</strong> Argentina</p>
-          <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
-          <p><strong>Ubicación:</strong> {{ usuario.ubicacion }}</p>
-        </div>
-      </div>
+      </main>
     </div>
-  </div>
-</article>
+  </article>
+</section>

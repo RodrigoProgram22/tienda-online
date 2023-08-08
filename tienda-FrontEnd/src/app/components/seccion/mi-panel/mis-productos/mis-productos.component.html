@@ -1,5 +1,5 @@
-<article class="container mt-4 body">
-  <div class="row">
+<section class="container mt-4 body">
+  <article class="row">
     <div class="col-md-3">
       <div class="list-group">
         <a
@@ -30,57 +30,61 @@
       </div>
     </div>
     <div class="col-md-9">
-      <h3 class="my-3 text-start">Mis Productos</h3>
-      <p>
-        Aquí puedes ver tus productos publicados, también puedes editarlo y
-        eliminarlo
-      </p>
-      <button
-        class="text-end"
-        *ngIf="!(productos.length == 0)"
-        (click)="editarProducto()"
-      >
-        Editar Productos
-      </button>
-      <hr />
-      <div *ngIf="productos.length == 0">
-        <h5 class="mx-auto">No hay productos publicados con esta cuenta.</h5>
-        <a routerLink="/agregar-producto" class="text-primario fw-bold"
-          >Ingresa aquí</a
+      <header>
+        <h3 class="my-3 text-start">Mis Productos</h3>
+        <p>
+          Aquí puedes ver tus productos publicados, también puedes editarlo y
+          eliminarlo
+        </p>
+      </header>
+      <main>
+        <button
+          class="text-end"
+          *ngIf="!(productos.length == 0)"
+          (click)="editarProducto()"
         >
-        para agregar productos.
-      </div>
-      <div class="row" *ngIf="productos">
-        <!-- Productos como tarjetas en columnas de 4 -->
-        <div class="col-md-3 my-2" *ngFor="let producto of productos">
-          <div class="card mx-auto">
-            <a routerLink="/ver-producto/{{ producto.id_producto }}">
-              <img class="card-img-top" [src]="producto.imagen" />
-            </a>
-            <div class="card-body">
-              <p class="card-title">{{ producto.nombre }}</p>
-              <p class="card-text">${{ producto.precio }}</p>
-              <p class="card-text">Cantidad: {{ producto.cantidad }}</p>
-              <div *ngIf="editBoolean" class="container-fluid">
-                <div class="text-center">
-                  <a routerLink="/edit-producto/{{ producto.id_producto }}">
+          Editar Productos
+        </button>
+        <hr />
+        <div *ngIf="productos.length == 0">
+          <h5 class="mx-auto">No hay productos publicados con esta cuenta.</h5>
+          <a routerLink="/agregar-producto" class="text-primario fw-bold"
+            >Ingresa aquí</a
+          >
+          para agregar productos.
+        </div>
+        <div class="row" *ngIf="productos">
+          <!-- Productos como tarjetas en columnas de 4 -->
+          <div class="col-md-3 my-2" *ngFor="let producto of productos">
+            <div class="card mx-auto">
+              <a routerLink="/ver-producto/{{ producto.id_producto }}">
+                <img class="card-img-top" [src]="producto.imagen" />
+              </a>
+              <div class="card-body">
+                <p class="card-title">{{ producto.nombre }}</p>
+                <p class="card-text">${{ producto.precio }}</p>
+                <p class="card-text">Cantidad: {{ producto.cantidad }}</p>
+                <div *ngIf="editBoolean" class="container-fluid">
+                  <div class="text-center">
+                    <a routerLink="/edit-producto/{{ producto.id_producto }}">
+                      <i
+                        class="bi bi-pencil-square text-primario"
+                        style="font-size: 20px"
+                      >
+                      </i>
+                    </a>
                     <i
-                      class="bi bi-pencil-square text-primario"
-                      style="font-size: 20px"
-                    >
-                    </i>
-                  </a>
-                  <i
-                    (click)="eliminarProduc(producto.id_producto)"
-                    class="bi bi-x-square text-primario mx-3"
-                    style="font-size: 20px; cursor: pointer"
-                  ></i>
+                      (click)="eliminarProduc(producto.id_producto)"
+                      class="bi bi-x-square text-primario mx-3"
+                      style="font-size: 20px; cursor: pointer"
+                    ></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
-  </div>
-</article>
+  </article>
+</section>

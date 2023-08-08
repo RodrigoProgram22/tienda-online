@@ -1,7 +1,7 @@
-<article>
+<section>
   <div class="container mt-4">
     <div class="row">
-      <div class="col-md-3">
+      <nav class="col-md-3">
         <div class="list-group">
           <a
             class="list-group-item list-group-item-action bg-primario text-light fw-bold"
@@ -29,147 +29,155 @@
             Mis Productos
           </a>
         </div>
-      </div>
+      </nav>
       <div class="col-md-9">
-        <h3 class="my-3">Editar Producto</h3>
-        <p>
-          Actualiza tu producto con nuevos precios o cambia un dato que
-          ingresaste mal.
-        </p>
+        <header>
+          <h3 class="my-3">Editar Producto</h3>
+          <p>
+            Actualiza tu producto con nuevos precios o cambia un dato que
+            ingresaste mal.
+          </p>
+        </header>
         <hr />
-        <div *ngIf="!proveedor_valido">
-          <h3 class="text-danger">
-            Lo siento no puedes modificar este producto.
-          </h3>
-        </div>
-        <form #f="ngForm" (submit)="editarProducto(f)" *ngIf="proveedor_valido">
-          <div class="my-4">
-            <label for="nombreProducto" class="fw-bold"
-              >Nombre del Producto</label
-            ><br />
-            <input
-              type="text"
-              class="input"
-              id="nombreProducto"
-              name="nombreProducto"
-              placeholder="{{ produc.nombre }}"
-              [(ngModel)]="produc.nombre"
-              required
-            />
+        <main>
+          <div *ngIf="!proveedor_valido">
+            <h3 class="text-danger">
+              Lo siento no puedes modificar este producto.
+            </h3>
           </div>
-          <div class="form-group my-4">
-            <label for="etiquetasProducto" class="fw-bold"
-              >Etiquetas del Producto</label
-            ><br />
-            <input
-              type="text"
-              class="input"
-              id="etiquetasProducto"
-              name="etiquetasProducto"
-              [(ngModel)]="produc.etiquetas"
-              required
-              placeholder="{{ produc.etiquetas }}"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="descripcionProducto" class="fw-bold"
-              >Descripción del Producto</label
-            ><br />
-            <textarea
-              class="input"
-              id="descripcionProducto"
-              name="descripcionProducto"
-              [(ngModel)]="produc.descripcion"
-              required
-              rows="3"
-              placeholder="{{ produc.descripcion }}"
-            ></textarea>
-          </div>
-          <div class="form-group my-4">
-            <label for="precioProducto" class="fw-bold"
-              >Precio del Producto</label
-            ><br />
-            <input
-              type="number"
-              class="input"
-              id="precioProducto"
-              name="precioProducto"
-              [(ngModel)]="produc.precio"
-              required
-              placeholder="{{ produc.precio }}"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="cantidadProducto" class="fw-bold"
-              >Cantidad de Productos</label
-            ><br />
-            <input
-              type="number"
-              class="input"
-              id="cantidadProducto"
-              name="cantidadProducto"
-              [(ngModel)]="produc.cantidad"
-              required
-              placeholder="{{ produc.cantidad }}"
-            />
-          </div>
-          <div class="form-group my-4">
-            <label for="imagenProducto" class="fw-bold">
-              Imagen del Producto (.jpg):
-            </label>
-            <input
-              type="file"
-              class="form-control-file"
-              id="imagenProducto"
-              accept=".jpg, .jpeg"
-              (change)="onFileSelected($event)"
-            />
-          </div>
-          <div *ngIf="previsualizacion">
-            <p>Vista previa de la imagen antes de enviarla.</p>
-            <img
-              [src]="previsualizacion"
-              alt="imagenProducto"
-              class="imgPrevi mb-3"
-            />
-          </div>
-          <div class="container my-3 text-center" *ngIf="loader">
-            <div class="line-wobble mx-auto"></div>
-          </div>
-          <div
-            class="alert alert-success alert-dismissible fade show"
-            role="alert"
-            *ngIf="respuestaExitosa"
+          <form
+            #f="ngForm"
+            (submit)="editarProducto(f)"
+            *ngIf="proveedor_valido"
           >
-            <strong>Exito!</strong> El producto se agrego correctamente.
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div
-            class="alert alert-warning alert-dismissible fade show"
-            role="alert"
-            *ngIf="errorDeCampos"
-          >
-            <strong>Error!</strong> Asegúrate de que todos los campos estén
-            completos
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div>
-            <button type="submit" class="enviar fw-bold">
-              Editar Producto
-            </button>
-          </div>
-        </form>
+            <div class="my-4">
+              <label for="nombreProducto" class="fw-bold"
+                >Nombre del Producto</label
+              ><br />
+              <input
+                type="text"
+                class="input"
+                id="nombreProducto"
+                name="nombreProducto"
+                placeholder="{{ produc.nombre }}"
+                [(ngModel)]="produc.nombre"
+                required
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="etiquetasProducto" class="fw-bold"
+                >Etiquetas del Producto</label
+              ><br />
+              <input
+                type="text"
+                class="input"
+                id="etiquetasProducto"
+                name="etiquetasProducto"
+                [(ngModel)]="produc.etiquetas"
+                required
+                placeholder="{{ produc.etiquetas }}"
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="descripcionProducto" class="fw-bold"
+                >Descripción del Producto</label
+              ><br />
+              <textarea
+                class="input"
+                id="descripcionProducto"
+                name="descripcionProducto"
+                [(ngModel)]="produc.descripcion"
+                required
+                rows="3"
+                placeholder="{{ produc.descripcion }}"
+              ></textarea>
+            </div>
+            <div class="form-group my-4">
+              <label for="precioProducto" class="fw-bold"
+                >Precio del Producto</label
+              ><br />
+              <input
+                type="number"
+                class="input"
+                id="precioProducto"
+                name="precioProducto"
+                [(ngModel)]="produc.precio"
+                required
+                placeholder="{{ produc.precio }}"
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="cantidadProducto" class="fw-bold"
+                >Cantidad de Productos</label
+              ><br />
+              <input
+                type="number"
+                class="input"
+                id="cantidadProducto"
+                name="cantidadProducto"
+                [(ngModel)]="produc.cantidad"
+                required
+                placeholder="{{ produc.cantidad }}"
+              />
+            </div>
+            <div class="form-group my-4">
+              <label for="imagenProducto" class="fw-bold">
+                Imagen del Producto (.jpg):
+              </label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="imagenProducto"
+                accept=".jpg, .jpeg"
+                (change)="onFileSelected($event)"
+              />
+            </div>
+            <div *ngIf="previsualizacion">
+              <p>Vista previa de la imagen antes de enviarla.</p>
+              <img
+                [src]="previsualizacion"
+                alt="imagenProducto"
+                class="imgPrevi mb-3"
+              />
+            </div>
+            <div class="container my-3 text-center" *ngIf="loader">
+              <div class="line-wobble mx-auto"></div>
+            </div>
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+              *ngIf="respuestaExitosa"
+            >
+              <strong>Exito!</strong> El producto se agrego correctamente.
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div
+              class="alert alert-warning alert-dismissible fade show"
+              role="alert"
+              *ngIf="errorDeCampos"
+            >
+              <strong>Error!</strong> Asegúrate de que todos los campos estén
+              completos
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div>
+              <button type="submit" class="enviar fw-bold">
+                Editar Producto
+              </button>
+            </div>
+          </form>
+        </main>
       </div>
     </div>
   </div>
-</article>
+</section>
