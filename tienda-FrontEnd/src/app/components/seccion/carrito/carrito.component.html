@@ -25,6 +25,9 @@
     <div class="m-1 p-1 m-md-5 p-md-5 carrito">
       <h5>Tu carrito ({{ productos.length }})</h5>
       <hr />
+      <div class="container text-center" *ngIf="loaderCarrito">
+        <div class="line-wobble mx-auto"></div>
+      </div>
       <div class="p-5 m-5" *ngIf="productosVacio">
         <div class="text-center">
           <p class="fw-bold">Tu Carrito Está Vacío</p>
@@ -76,6 +79,7 @@
               <button class="my-2 crear fw-bold" (click)="comprar()">
                 Continuar Compra
               </button>
+              <div [innerHTML]="msjCarrito"></div>
             </div>
           </div>
         </div>

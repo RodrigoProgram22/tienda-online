@@ -6,7 +6,7 @@
     <div class="col-4 detalles">
       <h2 class="fw-bold text-center text-md-start">{{ produc.nombre }}</h2>
       <p class="fw-bold">Proveedor: {{ produc.proveedor?.nombreUsuario }}</p>
-      <h5 class="fw-bold text-primario">${{ produc.precio }}</h5>
+      <h5 class="fw-bold text-primario">$ {{ produc.precio }}</h5>
       <p class="fw-bold text-success">Envió Gratis</p>
       <p class="fw-bold">Cantidad: {{ produc.cantidad }}</p>
       <p class="fw-bold">Teléfono: {{ produc.proveedor?.telefono }}</p>
@@ -23,6 +23,9 @@
         >
           Agregar al Carrito
         </button>
+      </div>
+      <div class="container m-5 text-center" *ngIf="loaderProduc">
+        <div class="line-wobble mx-auto"></div>
       </div>
       <div [innerHTML]="msjCarrito"></div>
     </div>

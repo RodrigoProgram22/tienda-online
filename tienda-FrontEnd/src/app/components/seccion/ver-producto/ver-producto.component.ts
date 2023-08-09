@@ -13,6 +13,8 @@ export class VerProductoComponent implements OnInit {
   productosAleatorios: any[] = [];
   produc: any = {};
   msjCarrito: string = '';
+  loaderProduc : boolean = false;
+  usuario_registrado: any;
   constructor(
     private producS: ProductosService,
     private carritoS: CarritoService,
@@ -23,6 +25,10 @@ export class VerProductoComponent implements OnInit {
   ngOnInit(): void {
     this.cargarProducto();
     this.cargarRecomendados();
+    // Obtengo el Id del usuario registrado
+    this.authS.obtenerUsuario().subscribe((user) => {
+      this.usuario_registrado = user.id_usuario;
+    });
   }
   cargarProducto() {
     const id = this.activateRouter.snapshot.params['id'];
@@ -37,6 +43,7 @@ export class VerProductoComponent implements OnInit {
     );
   }
   agregarCarrito() {
+    this.loaderProduc = true;
     this.authS.obtenerUsuario().subscribe(
       (user) => {
         const id = this.activateRouter.snapshot.params['id'];
@@ -44,13 +51,23 @@ export class VerProductoComponent implements OnInit {
         this.carritoS.agregarProducto(id_user!, id).subscribe((data) => {
           this.msjCarrito =
             '<p class="fw-bold text-success">El producto se agregó al carrito.</p>';
+          this.loaderProduc = false;
         });
+        this.loaderProduc = false;
       },
       (err) => {
-        this.msjCarrito =
-          '<p class="fw-bold text-danger">Error al agregar producto.</p>';
+        if (this.usuario_registrado) {
+          this.msjCarrito =
+            '<p class="fw-bold text-danger">Error al agregar producto.</p>';
+            this.loaderProduc = false;
+        } else {
+          this.loaderProduc = false;
+          this.msjCarrito =
+            '<p class="fw-bold text-danger">Error, primero debes Iniciar Sesión.</p>';
+        }
       }
     );
+    this.loaderProduc = false;
   }
   cargarRecomendados() {
     this.producS.obtenerProductos().subscribe((data) => {
@@ -64,6 +81,9 @@ export class VerProductoComponent implements OnInit {
     });
   }
   comprar() {
-    alert('Esta funcion está en mantenimiento');
+    this.loaderProduc = true;
+    this.msjCarrito =
+      '<p class="fw-bold text-warning">Esta funcion está en mantenimiento.</p>';
+    this.loaderProduc = false;
   }
 }

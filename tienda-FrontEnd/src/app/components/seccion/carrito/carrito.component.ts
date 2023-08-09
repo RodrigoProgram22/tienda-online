@@ -13,6 +13,8 @@ export class CarritoComponent implements OnInit {
   suma: number = 0;
   isLogged: boolean = false;
   productosVacio: boolean = true;
+  msjCarrito: string = '';
+  loaderCarrito : boolean = false;
   constructor(
     private carritoService: CarritoService,
     private authS: AuthService,
@@ -27,6 +29,7 @@ export class CarritoComponent implements OnInit {
     }
   }
   cargarProductos() {
+    this.loaderCarrito = true;
     this.authS.obtenerUsuario().subscribe((user) => {
       const id = user.id_usuario; // ID del usuario que esta logueado
       this.carritoService.getProductosDelCarrito(id!).subscribe((data) => {
@@ -38,9 +41,13 @@ export class CarritoComponent implements OnInit {
         this.suma = sumaTotal;
         if (this.productos.length >= 1) {
           this.productosVacio = false;
+          this.loaderCarrito = false;
         }
+        this.loaderCarrito = false;
       });
+      this.loaderCarrito = false;
     });
+    this.loaderCarrito = false;
   }
   eliminar(id: any) {
     this.authS.obtenerUsuario().subscribe((user) => {
@@ -51,6 +58,7 @@ export class CarritoComponent implements OnInit {
     });
   }
   comprar() {
-    alert('Esta funcion está en mantenimiento');
+    this.msjCarrito =
+    '<p class="fw-bold text-warning">Esta funcion está en mantenimiento.</p>';
   }
 }
