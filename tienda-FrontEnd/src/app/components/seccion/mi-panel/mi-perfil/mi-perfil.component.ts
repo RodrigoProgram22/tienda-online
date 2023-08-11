@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/model/Usuario';
 import { AuthService } from 'src/app/service/auth.service';
 import { UsuariosService } from 'src/app/service/usuarios.service';
 @Component({
@@ -13,7 +14,7 @@ export class MiPerfilComponent implements OnInit {
     private usuarioService: UsuariosService,
     private authS: AuthService
   ) {}
-  usuario: any = {};
+  usuario!: Usuario;
   ngOnInit(): void {
     this.authS.obtenerUsuario().subscribe((user) => {
       const id = user.id_usuario; // ID del usuario que esta logueado

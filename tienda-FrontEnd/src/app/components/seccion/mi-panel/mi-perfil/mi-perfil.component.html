@@ -35,10 +35,15 @@
       </header>
       <hr />
       <main>
-        <div class="row">
+        <div class="container text-center my-5" *ngIf="!usuario">
+          <div class="line-wobble mx-auto"></div>
+        </div>
+        <div class="row" *ngIf="usuario">
           <div class="col-md-6">
             <p><strong>Nombre Usuario:</strong> {{ usuario.nombreUsuario }}</p>
-            <p><strong>Nombre Completo:</strong> {{ usuario.nombreApellido }}</p>
+            <p>
+              <strong>Nombre Completo:</strong> {{ usuario.nombreApellido }}
+            </p>
             <p><strong>Email:</strong> {{ usuario.email }}</p>
           </div>
           <div class="col-md-6">

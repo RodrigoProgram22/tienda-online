@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Producto } from 'src/app/model/Producto';
 import { AuthService } from 'src/app/service/auth.service';
 import { CarritoService } from 'src/app/service/carrito.service';
 import { ProductosService } from 'src/app/service/productos.service';
@@ -13,7 +12,7 @@ export class VerProductoComponent implements OnInit {
   productosAleatorios: any[] = [];
   produc: any = {};
   msjCarrito: string = '';
-  loaderProduc : boolean = false;
+  loader : boolean = false;
   usuario_registrado: any;
   constructor(
     private producS: ProductosService,
@@ -43,7 +42,7 @@ export class VerProductoComponent implements OnInit {
     );
   }
   agregarCarrito() {
-    this.loaderProduc = true;
+    this.loader = true;
     this.authS.obtenerUsuario().subscribe(
       (user) => {
         const id = this.activateRouter.snapshot.params['id'];
@@ -51,23 +50,21 @@ export class VerProductoComponent implements OnInit {
         this.carritoS.agregarProducto(id_user!, id).subscribe((data) => {
           this.msjCarrito =
             '<p class="fw-bold text-success">El producto se agregó al carrito.</p>';
-          this.loaderProduc = false;
+          this.loader = false;
         });
-        this.loaderProduc = false;
       },
       (err) => {
         if (this.usuario_registrado) {
           this.msjCarrito =
             '<p class="fw-bold text-danger">Error al agregar producto.</p>';
-            this.loaderProduc = false;
+            this.loader = false;
         } else {
-          this.loaderProduc = false;
           this.msjCarrito =
-            '<p class="fw-bold text-danger">Error, primero debes Iniciar Sesión.</p>';
+          '<p class="fw-bold text-danger">Error, primero debes Iniciar Sesión.</p>';
+          this.loader = false;
         }
       }
     );
-    this.loaderProduc = false;
   }
   cargarRecomendados() {
     this.producS.obtenerProductos().subscribe((data) => {
@@ -81,9 +78,9 @@ export class VerProductoComponent implements OnInit {
     });
   }
   comprar() {
-    this.loaderProduc = true;
+    this.loader = true;
     this.msjCarrito =
       '<p class="fw-bold text-warning">Esta funcion está en mantenimiento.</p>';
-    this.loaderProduc = false;
+    this.loader = false;
   }
 }

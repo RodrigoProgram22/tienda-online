@@ -24,8 +24,9 @@
           Agregar al Carrito
         </button>
       </div>
-      <div class="container m-5 text-center" *ngIf="loaderProduc">
-        <div class="line-wobble mx-auto"></div>
+      
+      <div class="container my-5 text-start" *ngIf="loader">
+        <div class="line-wobble "></div>
       </div>
       <div [innerHTML]="msjCarrito"></div>
     </div>

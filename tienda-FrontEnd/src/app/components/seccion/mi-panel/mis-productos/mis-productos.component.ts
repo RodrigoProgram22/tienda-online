@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { error } from 'console';
 import { AuthService } from 'src/app/service/auth.service';
 import { ProductosService } from 'src/app/service/productos.service';
 import { UsuariosService } from 'src/app/service/usuarios.service';
@@ -18,18 +19,31 @@ export class MisProductosComponent implements OnInit {
   editBoolean: boolean = false;
   usuario: any = {};
   productos: any[] = [];
+  loader: boolean = false;
   imgUrl: string = '';
   ngOnInit(): void {
     this.obtenerListaProductos();
   }
   obtenerListaProductos() {
-    this.authS.obtenerUsuario().subscribe((user) => {
-      const id = user.id_usuario; // ID del usuario que esta logueado
-      this.usuarioService.buscarUsuario(id!).subscribe((usuario) => {
-        this.usuario = usuario;
-        this.productos = usuario.productos; // Almacenar los productos del usuario en una propiedad
-      });
-    });
+    this.loader = true;
+    this.authS.obtenerUsuario().subscribe(
+      (user) => {
+        const id = user.id_usuario; // ID del usuario que esta logueado
+        this.usuarioService.buscarUsuario(id!).subscribe(
+          (usuario) => {
+            this.usuario = usuario;
+            this.productos = usuario.productos; // Almacenar los productos del usuario en una propiedad
+            this.loader = false;
+          },
+          (error) => {
+            this.loader = false;
+          }
+        );
+      },
+      (error) => {
+        this.loader = false;
+      }
+    );
   }
   editarProducto() {
     if (!this.editBoolean) {

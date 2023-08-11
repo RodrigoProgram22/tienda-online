@@ -46,7 +46,10 @@
           Editar Productos
         </button>
         <hr />
-        <div *ngIf="productos.length == 0">
+        <div class="container text-center my-5" *ngIf="loader">
+          <div class="line-wobble mx-auto"></div>
+        </div>
+        <div *ngIf="!productos.length">
           <h5 class="mx-auto">No hay productos publicados con esta cuenta.</h5>
           <a routerLink="/agregar-producto" class="text-primario fw-bold"
             >Ingresa aquí</a

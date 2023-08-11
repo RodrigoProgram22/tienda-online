@@ -45,9 +45,7 @@ export class CarritoComponent implements OnInit {
         }
         this.loaderCarrito = false;
       });
-      this.loaderCarrito = false;
     });
-    this.loaderCarrito = false;
   }
   eliminar(id: any) {
     this.authS.obtenerUsuario().subscribe((user) => {
