@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { error } from 'console';
 import { Producto } from 'src/app/model/Producto';
 import { AuthService } from 'src/app/service/auth.service';
 import { CarritoService } from 'src/app/service/carrito.service';
@@ -48,11 +49,17 @@ export class CarritoComponent implements OnInit {
     });
   }
   eliminar(id: any) {
+    this.loaderCarrito = true;
     this.authS.obtenerUsuario().subscribe((user) => {
       const id_user = user.id_usuario; // ID del usuario que esta logueado
       this.carritoService.eliminarProducto(id_user!, id).subscribe((data) => {
         this.cargarProductos();
+        this.loaderCarrito = false;
+      },error=>{
+        this.loaderCarrito = false;
       });
+    },error=>{
+      this.loaderCarrito = false;
     });
   }
   comprar() {
