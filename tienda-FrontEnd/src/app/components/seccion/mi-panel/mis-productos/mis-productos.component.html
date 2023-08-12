@@ -50,10 +50,12 @@
           <div class="line-wobble mx-auto"></div>
         </div>
         <div *ngIf="!productos.length">
-          <h5 class="mx-auto">No hay productos publicados con esta cuenta.</h5>
-          <a routerLink="/agregar-producto" class="text-primario fw-bold"
-            >Ingresa aquí</a
-          >
+          <h5 class="mx-auto">
+            No se encontraron productos publicados con esta cuenta.
+          </h5>
+          <a routerLink="/agregar-producto" class="text-primario fw-bold">
+            Ingresa aquí
+          </a>
           para agregar productos.
         </div>
         <div class="row" *ngIf="productos">
@@ -61,7 +63,11 @@
           <div class="col-md-3 my-2" *ngFor="let producto of productos">
             <div class="card mx-auto">
               <a routerLink="/ver-producto/{{ producto.id_producto }}">
-                <img class="card-img-top" [src]="producto.imagen" />
+                <img
+                  class="card-img-top"
+                  [src]="producto.imagen"
+                  alt="{{ producto.nombre }}"
+                />
               </a>
               <div class="card-body">
                 <p class="card-title">{{ producto.nombre }}</p>

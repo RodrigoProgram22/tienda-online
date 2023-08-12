@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { error } from 'console';
 import { Producto } from 'src/app/model/Producto';
 import { AuthService } from 'src/app/service/auth.service';
 import { CarritoService } from 'src/app/service/carrito.service';
@@ -15,7 +14,7 @@ export class CarritoComponent implements OnInit {
   isLogged: boolean = false;
   productosVacio: boolean = true;
   msjCarrito: string = '';
-  loaderCarrito : boolean = false;
+  loaderCarrito: boolean = false;
   constructor(
     private carritoService: CarritoService,
     private authS: AuthService,
@@ -50,20 +49,26 @@ export class CarritoComponent implements OnInit {
   }
   eliminar(id: any) {
     this.loaderCarrito = true;
-    this.authS.obtenerUsuario().subscribe((user) => {
-      const id_user = user.id_usuario; // ID del usuario que esta logueado
-      this.carritoService.eliminarProducto(id_user!, id).subscribe((data) => {
-        this.cargarProductos();
+    this.authS.obtenerUsuario().subscribe(
+      (user) => {
+        const id_user = user.id_usuario; // ID del usuario que esta logueado
+        this.carritoService.eliminarProducto(id_user!, id).subscribe(
+          (data) => {
+            this.cargarProductos();
+            this.loaderCarrito = false;
+          },
+          (error) => {
+            this.loaderCarrito = false;
+          }
+        );
+      },
+      (error) => {
         this.loaderCarrito = false;
-      },error=>{
-        this.loaderCarrito = false;
-      });
-    },error=>{
-      this.loaderCarrito = false;
-    });
+      }
+    );
   }
   comprar() {
     this.msjCarrito =
-    '<p class="fw-bold text-warning">Esta funcion está en mantenimiento.</p>';
+      '<p class="fw-bold bg-warning text-dark border rounded p-2">Esta funcion está en mantenimiento.</p>';
   }
 }

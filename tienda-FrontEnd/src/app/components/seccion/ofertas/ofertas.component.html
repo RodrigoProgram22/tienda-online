@@ -1,12 +1,16 @@
-<article class="my-4">
+<section class="my-4">
   <div class="container mx-auto p-3">
     <h3>Te Puede Interesar</h3>
     <div class="my-3" *ngIf="errorBack">
       <p class="text-danger">Error al cargar los datos</p>
     </div>
+    <div class="container text-center" *ngIf="loader">
+      <p class="fw-bold">Cargando...</p>
+      <div class="line-wobble mx-auto"></div>
+    </div>
     <div
       class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-auto"
-      *ngIf="!errorBack"
+      *ngIf="!loader"
     >
       <div class="col text-center card mx-auto">
         <div class="row row-cols-2 row-cols-md-2 g-4 align-items-center">
@@ -23,7 +27,11 @@
           </div>
           <div class="col align-items-center">
             <a routerLink="/ver-producto/{{ producPlay.id_producto }}">
-              <img [src]="producPlay.imagen" class="img-fluid img-produc-1" />
+              <img
+                [src]="producPlay.imagen"
+                class="img-fluid img-produc-1"
+                alt="{{ producPlay.nombre }}"
+              />
             </a>
           </div>
         </div>
@@ -43,7 +51,11 @@
           </div>
           <div class="col align-items-center">
             <a routerLink="/ver-producto/{{ producXbox.id_producto }}">
-              <img [src]="producXbox.imagen" class="img-fluid img-produc-1" />
+              <img
+                [src]="producXbox.imagen"
+                class="img-fluid img-produc-1"
+                alt="{{ producXbox.nombre }}"
+              />
             </a>
           </div>
         </div>
@@ -51,12 +63,16 @@
     </div>
   </div>
   <hr class="mx-5" size="5" />
-</article>
-<article class="my-4">
+</section>
+<section class="my-4">
   <div class="container mx-auto p-3">
     <h3>Ofertas Del Mes</h3>
     <div class="my-3" *ngIf="errorBackOfertas">
       <p class="text-danger">Error al cargar los datos</p>
+    </div>
+    <div class="container text-center" *ngIf="loader">
+      <p class="fw-bold">Cargando...</p>
+      <div class="line-wobble mx-auto"></div>
     </div>
     <div
       class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto"
@@ -69,7 +85,11 @@
               routerLink="/ver-producto/{{ producto.id_producto }}"
               class="text-center"
             >
-              <img class="img-produc-2 img-fluid" [src]="producto.imagen" />
+              <img
+                class="img-produc-2 img-fluid"
+                [src]="producto.imagen"
+                alt="{{ producto.nombre }}"
+              />
             </a>
           </div>
           <hr />
@@ -82,29 +102,41 @@
                 30% OFF
               </p>
             </div>
-            <a routerLink="/ver-producto" class="text-success text-start">
-              Envió Gratis
+            <a
+              class="text-primario text-start fw-bold"
+              routerLink="/ver-producto/{{ producto.id_producto }}"
+            >
+              Ver Producto
             </a>
+            <p class="text-success text-center fw-bold">Envió Gratis</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-</article>
-<article class="my-4">
+</section>
+<section class="my-4">
   <a routerLink="/productos">
-    <img src="../../../../assets/img/oferta.jpg" class="img-fluid imgOfert" />
+    <img
+      src="../../../../assets/img/oferta.jpg"
+      class="img-fluid imgOfert"
+      alt="publicidad de celulares"
+    />
   </a>
-</article>
-<article class="my-4">
+</section>
+<section class="my-4">
   <div class="container mx-auto p-3">
     <h3>Descubrí Más</h3>
+    <div class="container text-center" *ngIf="loader">
+      <p class="fw-bold">Cargando...</p>
+      <div class="line-wobble mx-auto"></div>
+    </div>
     <div class="my-3" *ngIf="errorBack">
       <p class="text-danger">Error al cargar los datos</p>
     </div>
     <div
       class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-auto"
-      *ngIf="!errorBack"
+      *ngIf="!loader"
     >
       <div class="col text-center card-3 p-2 mx-auto">
         <div class="row row-cols-2 row-cols-md-2 g-4 align-items-center">
@@ -122,7 +154,11 @@
           </div>
           <div class="col align-items-center">
             <a routerLink="/ver-producto/{{ producPc.id_producto }}">
-              <img [src]="producPc.imagen" class="img-fluid img-produc-1" />
+              <img
+                [src]="producPc.imagen"
+                class="img-fluid img-produc-1"
+                alt="{{ producPc.nombre }}"
+              />
             </a>
           </div>
         </div>
@@ -143,11 +179,15 @@
           </div>
           <div class="col align-items-center">
             <a routerLink="/ver-producto/{{ producLenovo.id_producto }}">
-              <img [src]="producLenovo.imagen" class="img-fluid img-produc-1" />
+              <img
+                [src]="producLenovo.imagen"
+                class="img-fluid img-produc-1"
+                alt="{{ producLenovo.nombre }}"
+              />
             </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-</article>
+</section>

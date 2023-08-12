@@ -12,7 +12,9 @@ export class VerProductoComponent implements OnInit {
   productosAleatorios: any[] = [];
   produc: any = {};
   msjCarrito: string = '';
-  loader : boolean = false;
+  loader: boolean = false;
+  loaderCarrito: boolean = false;
+  errorBack: boolean = false;
   usuario_registrado: any;
   constructor(
     private producS: ProductosService,
@@ -30,57 +32,70 @@ export class VerProductoComponent implements OnInit {
     });
   }
   cargarProducto() {
+    this.loader = true;
     const id = this.activateRouter.snapshot.params['id'];
     this.producS.buscarProducto(id).subscribe(
       (data) => {
         this.produc = data;
+        this.loader = false;
       },
       (err) => {
         alert('Error al ver el producto');
         this.router.navigate(['inicio']);
+        this.errorBack = true;
+        this.loader = false;
       }
     );
   }
   agregarCarrito() {
-    this.loader = true;
+    this.loaderCarrito = true;
     this.authS.obtenerUsuario().subscribe(
       (user) => {
         const id = this.activateRouter.snapshot.params['id'];
         const id_user = user.id_usuario; // el ID del usuario que se esta logueado
         this.carritoS.agregarProducto(id_user!, id).subscribe((data) => {
           this.msjCarrito =
-            '<p class="fw-bold text-success">El producto se agregó al carrito.</p>';
-          this.loader = false;
+            '<p class="fw-bold bg-success border rounded text-dark p-2">El producto se agregó al carrito.</p>';
+          this.loaderCarrito = false;
         });
       },
       (err) => {
         if (this.usuario_registrado) {
           this.msjCarrito =
-            '<p class="fw-bold text-danger">Error al agregar producto.</p>';
-            this.loader = false;
+            '<p class="fw-bold bg-danger border rounded text-dark p-2">Error al agregar producto.</p>';
+          this.loaderCarrito = false;
         } else {
           this.msjCarrito =
-          '<p class="fw-bold text-danger">Error, primero debes Iniciar Sesión.</p>';
-          this.loader = false;
+            '<p class="fw-bold bg-danger text-dark border rounded p-2">Error, primero debes Iniciar Sesión.</p>';
+          this.loaderCarrito = false;
         }
       }
     );
   }
   cargarRecomendados() {
-    this.producS.obtenerProductos().subscribe((data) => {
-      while (this.productosAleatorios.length < 4) {
-        const indiceAleatorio = Math.floor(Math.random() * data.length);
-        const productoAleatorio = data[indiceAleatorio];
-        if (!this.productosAleatorios.includes(productoAleatorio)) {
-          this.productosAleatorios.push(productoAleatorio);
+    this.loader = true;
+    this.producS.obtenerProductos().subscribe(
+      (data) => {
+        while (this.productosAleatorios.length < 4) {
+          const indiceAleatorio = Math.floor(Math.random() * data.length);
+          const productoAleatorio = data[indiceAleatorio];
+          if (!this.productosAleatorios.includes(productoAleatorio)) {
+            this.productosAleatorios.push(productoAleatorio);
+            this.loader = false;
+          }
+          this.loader = false;
         }
+      },
+      (error) => {
+        this.errorBack = true;
+        this.loader = false;
       }
-    });
+    );
   }
   comprar() {
     this.loader = true;
     this.msjCarrito =
-      '<p class="fw-bold text-warning">Esta funcion está en mantenimiento.</p>';
+      '<p class="fw-bold bg-warning text-dark border rounded p-2">Esta funcion está en mantenimiento.</p>';
     this.loader = false;
   }
 }

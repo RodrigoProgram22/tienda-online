@@ -15,30 +15,37 @@ export class OfertasComponent implements OnInit {
   producLenovo: any = {};
   errorBack: boolean = false;
   errorBackOfertas: boolean = false;
+  loader : boolean = false;
   public productos: Array<Producto> = [];
   ngOnInit(): void {
     this.recomendados();
     this.cargarOfertas();
   }
   cargarOfertas() {
+    this.loader = true;
     this.producS.obtenerProductos().subscribe(
       (data) => {
         this.productos = data.slice(4, 8);
+        this.loader = false;
       },
       (err) => {
         this.errorBackOfertas = true;
         this.router.navigate(['inicio']);
+        this.loader = false;
       }
     );
   }
   recomendados() {
+    this.loader = true;
     this.producS.buscarProducto(1).subscribe(
       (data) => {
         this.producPlay = data;
+        this.loader = false;
       },
       (err) => {
         this.errorBack = true;
         this.router.navigate(['inicio']);
+        this.loader = false;
       }
     );
     this.producS.buscarProducto(2).subscribe(

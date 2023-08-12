@@ -1,7 +1,18 @@
 <article class="container my-3">
-  <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-2">
+  <div class="container text-center" *ngIf="loader">
+    <p class="fw-bold">Cargando...</p>
+    <div class="line-wobble mx-auto"></div>
+  </div>
+  <div
+    class="row row-cols-1 row-cols-md-2 g-4 align-items-center my-2"
+    *ngIf="produc.nombre"
+  >
     <div class="col text-center">
-      <img [src]="produc.imagen" class="img-fluid imgSombra" />
+      <img
+        [src]="produc.imagen"
+        class="img-fluid imgSombra"
+        alt="{{ produc.nombre }}"
+      />
     </div>
     <div class="col-4 detalles">
       <h2 class="fw-bold text-center text-md-start">{{ produc.nombre }}</h2>
@@ -24,9 +35,9 @@
           Agregar al Carrito
         </button>
       </div>
-      
-      <div class="container my-4 py-4 text-start" *ngIf="loader">
-        <div class="line-wobble "></div>
+
+      <div class="container my-4 py-4 text-start" *ngIf="loaderCarrito">
+        <div class="line-wobble"></div>
       </div>
       <div [innerHTML]="msjCarrito"></div>
     </div>
@@ -35,7 +46,14 @@
 <article class="my-4">
   <div class="container mx-auto p-3">
     <h3>Recomendados para ti.</h3>
-    <div class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto">
+    <div class="container text-center" *ngIf="loader">
+      <p class="fw-bold">Cargando...</p>
+      <div class="line-wobble mx-auto"></div>
+    </div>
+    <div
+      class="row row-cols-1 row-cols-md-4 g-4 align-items-center my-auto"
+      *ngIf="produc.nombre"
+    >
       <div class="col text-center" *ngFor="let producto of productosAleatorios">
         <div class="card-ofertas mx-auto" (click)="cargarProducto()">
           <div class="container text-center p-2">
@@ -43,20 +61,30 @@
               routerLink="/ver-producto/{{ producto.id_producto }}"
               class="text-center"
             >
-              <img class="img-produc-2 img-fluid" [src]="producto.imagen" />
+              <img
+                class="img-produc-2 img-fluid"
+                [src]="producto.imagen"
+                alt="{{ produc.nombre }}"
+              />
             </a>
           </div>
           <hr />
-          <div class="card-body">
+          <div class="card-body my-4">
             <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center">
-              <h5 class="col fw-bold text-center text-md-end">
+              <h4 class="col fw-bold text-center text-md-end">
                 ${{ producto.precio }}
-              </h5>
+              </h4>
               <p class="col text-success text-center text-md-start my-0">
                 30% OFF
               </p>
             </div>
-            <a class="text-success text-start fw-bold">Envió Gratis</a>
+            <a
+              class="text-primario text-start fw-bold"
+              routerLink="/ver-producto/{{ producto.id_producto }}"
+            >
+              Ver Producto
+            </a>
+            <p class="text-success text-center fw-bold">Envió Gratis</p>
           </div>
         </div>
       </div>

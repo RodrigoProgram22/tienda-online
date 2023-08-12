@@ -26,6 +26,7 @@
       <h5>Tu carrito ({{ productos.length }})</h5>
       <hr />
       <div class="container text-center my-5" *ngIf="loaderCarrito">
+        <p class="fw-bold">Cargando...</p>
         <div class="line-wobble mx-auto"></div>
       </div>
       <div class="p-5 m-5" *ngIf="productosVacio && !loaderCarrito">
@@ -37,14 +38,18 @@
           </a>
         </div>
       </div>
-      <div class="container" >
+      <div class="container">
         <div
           class="row row-cols-1 row-cols-md-3 g-4 align-items-center my-2"
           *ngFor="let produc of productos"
         >
           <div class="col text-center">
-            <a routerLink="/ver-producto/{{produc.id_producto}}">
-              <img [src]="produc.imagen" class="img-fluid img-carrito" />
+            <a routerLink="/ver-producto/{{ produc.id_producto }}">
+              <img
+                [src]="produc.imagen"
+                class="img-fluid img-carrito"
+                alt="{{ produc.nombre }}"
+              />
             </a>
           </div>
           <div class="col text-center">

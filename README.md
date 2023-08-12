@@ -7,7 +7,7 @@ Este proyecto se generó con [Angular CLI](https://github.com/angular/angular-cl
 
 ## Visualización
 
-Puedes visualizar MiTec en línea a través de la página web hospedada en Netlify: https://mi-tec.netlify.app. ¡No dudes en echarle un vistazo!
+Puedes visualizar MiTec en línea a través de la página web hospedada en Netlify: `https://mi-tec22.web.app/`. ¡No dudes en echarle un vistazo!
 
 ## Ver proyecto
 
