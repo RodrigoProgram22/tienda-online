@@ -5,3 +5,6 @@
 .btn:hover {
   color: var(--primary);
 }
+.bi{
+  font-size: 23px;
+}

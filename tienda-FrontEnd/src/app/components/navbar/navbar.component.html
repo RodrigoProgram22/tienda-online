@@ -1,9 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <div class="text-startss">
+    <div class="text-start">
       <a routerLink="/inicio">
-        <img src="../../../assets/logo.png" class="img-fluid img-logo" alt="logo Mi Tec"/>
+        <img
+          src="../../../assets/logo.png"
+          class="img-fluid img-logo"
+          alt="logo Mi Tec"
+        />
       </a>
+    </div>
+    <div class="d-lg-none d-xl-none d-xxl-none" *ngIf="isLogged">
+      <a routerLink="/mi-perfil">
+        <i class="bi bi-person-lines-fill text-primario"></i>
+      </a>
+    </div>
+    <div class="d-lg-none d-xl-none d-xxl-none" *ngIf="isLogged">
+      <a routerLink="/carrito">
+        <i class="bi bi-cart3 text-primario icon"></i>
+      </a>
+    </div>
+    <div class="d-lg-none d-xl-none d-xxl-none" *ngIf="isLogged">
+      <i class="bi bi-box-arrow-right text-primario" (click)="onLogOut()"></i>
     </div>
     <button
       class="navbar-toggler"
@@ -22,19 +39,19 @@
           <a class="nav-link fw-bold btn" routerLink="/inicio">Inicio</a>
         </li>
         <li
-          class="nav-item mx-2"
-          *ngIf="currentRoute !== '/carrito' && isLogged"
+          class="nav-item mx-2 d-none d-lg-block d-xl-block d-xxl-block"
+          *ngIf="isLogged"
         >
-          <a routerLink="/carrito">
-            <i class="bi bi-cart3 text-primario" style="font-size: 20px"></i>
+          <a routerLink="/mi-perfil">
+            <i class="bi bi-person-lines-fill text-primario"></i>
           </a>
         </li>
-        <li class="nav-item mx-2" *ngIf="isLogged">
-          <a routerLink="/mi-perfil">
-            <i
-              class="bi bi-person-lines-fill text-primario"
-              style="font-size: 20px"
-            ></i>
+        <li
+          class="nav-item mx-2 d-none d-lg-block d-xl-block d-xxl-block"
+          *ngIf="isLogged"
+        >
+          <a routerLink="/carrito">
+            <i class="bi bi-cart3 text-primario"></i>
           </a>
         </li>
         <li class="nav-item" *ngIf="currentRoute !== '/registro' && !isLogged">
@@ -46,10 +63,8 @@
           <a class="nav-link fw-bold btn" routerLink="/login">Ingresá</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="isLogged">
-            <a class="nav-link fw-bold btn" type="submit" (click)="onLogOut()">
-              Cerrar Sesión
-            </a>
+          <a *ngIf="isLogged" class="nav-link fw-bold btn" (click)="onLogOut()">
+            Cerrar Sesión
           </a>
         </li>
       </ul>
