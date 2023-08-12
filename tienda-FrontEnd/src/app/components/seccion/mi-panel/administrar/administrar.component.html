@@ -39,11 +39,10 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nombre Usuario</th>
+              <th scope="col">N°</th>
+              <th scope="col">Usuario</th>
               <th scope="col">Nombre Completo</th>
-              <th scope="col">Email</th>
-              <th scope="col">Modificar</th>
+              <th scope="col">Ban</th>
             </tr>
           </thead>
           <tbody>
@@ -51,7 +50,6 @@
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ usuario.nombreUsuario }}</td>
               <td>{{ usuario.nombreApellido }}</td>
-              <td>{{ usuario.email }}</td>
               <td>
                 <i
                   (click)="eliminarUser(usuario.id_usuario)"

@@ -2,10 +2,6 @@
   width: 90px;
   object-fit: contain;
 }
-/* * {
-  border: 1px solid red;
-} */
-
 .btn:hover {
   color: var(--primary);
 }

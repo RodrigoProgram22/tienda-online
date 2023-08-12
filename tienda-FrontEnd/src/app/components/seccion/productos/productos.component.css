@@ -1,5 +1,6 @@
 a {
   text-decoration: none;
+  color: var(--secondary);
 }
 
 li {
@@ -19,53 +20,6 @@ li {
   box-shadow: 0 5px 10px 0 rgba(31, 38, 135, 0.37);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-}
-.ver-produc {
-  --color: var(--primary);
-  padding: 0.8em 1.7em;
-  background-color: transparent;
-  border-radius: 0.3em;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.5s;
-  font-weight: 400;
-  font-size: 17px;
-  border: 1px solid;
-  color: var(--color);
-  z-index: 1;
-}
-.ver-produc::before,
-.ver-produc::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 50px;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  border-radius: 50%;
-  z-index: -1;
-  background-color: var(--color);
-  transition: 1s ease;
-}
-.ver-produc::before {
-  top: -1em;
-  left: -1em;
-}
-.ver-produc::after {
-  left: calc(100% + 1em);
-  top: calc(100% + 1em);
-}
-.ver-produc:hover::before,
-.ver-produc:hover::after {
-  height: 410px;
-  width: 410px;
-}
-.ver-produc:hover {
-  color: white;
-}
-.ver-produc:active {
-  filter: brightness(0.8);
 }
 /* Busqueda de productos */
 .input {

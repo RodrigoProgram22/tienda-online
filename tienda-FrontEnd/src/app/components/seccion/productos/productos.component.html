@@ -69,7 +69,7 @@
               />
             </a>
             <div class="card-body">
-              <p class="card-title">{{ producto.nombre }}</p>
+              <a class="card-title fw-bold" routerLink="/ver-producto/{{ producto.id_producto }}">{{ producto.nombre }}</a>
               <h5 class="card-text">${{ producto.precio }}</h5>
               <p class="card-text text-success">Envió Gratis</p>
             </div>

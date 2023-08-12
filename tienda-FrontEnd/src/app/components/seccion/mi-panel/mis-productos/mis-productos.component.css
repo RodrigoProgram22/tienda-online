@@ -22,17 +22,6 @@ a {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-.input {
-  width: 100%;
-  line-height: 28px;
-  border: 2px solid transparent;
-  border-bottom-color: var(--primary);
-  padding: 0.2rem 0;
-  outline: none;
-  background-color: transparent;
-  color: #0d0c22;
-  transition: 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-}
 /* Boton de Editar */
 button {
   font-size: 18px;
