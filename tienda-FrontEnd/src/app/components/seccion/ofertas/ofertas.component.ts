@@ -37,7 +37,7 @@ export class OfertasComponent implements OnInit {
   }
   recomendados() {
     this.loader = true;
-    this.producS.buscarProducto(1).subscribe(
+    this.producS.buscarProducto(3).subscribe(
       (data) => {
         this.producPlay = data;
         this.loader = false;
@@ -48,7 +48,7 @@ export class OfertasComponent implements OnInit {
         this.loader = false;
       }
     );
-    this.producS.buscarProducto(2).subscribe(
+    this.producS.buscarProducto(4).subscribe(
       (data) => {
         this.producXbox = data;
       },
@@ -57,7 +57,7 @@ export class OfertasComponent implements OnInit {
         this.router.navigate(['inicio']);
       }
     );
-    this.producS.buscarProducto(3).subscribe(
+    this.producS.buscarProducto(6).subscribe(
       (data) => {
         this.producPc = data;
       },
@@ -66,7 +66,7 @@ export class OfertasComponent implements OnInit {
         this.router.navigate(['inicio']);
       }
     );
-    this.producS.buscarProducto(4).subscribe(
+    this.producS.buscarProducto(2).subscribe(
       (data) => {
         this.producLenovo = data;
       },

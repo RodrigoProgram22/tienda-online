@@ -7,8 +7,8 @@ import { Usuario } from '../model/Usuario';
   providedIn: 'root',
 })
 export class UsuariosService {
-  // private apiUrl = 'http://localhost:8080'; // La URL de tu API
-  private apiUrl = 'https://backend-mitec-api-production.up.railway.app'; // La URL de tu API
+  private apiUrl = 'http://localhost:8080'; // La URL de tu API
+  // private apiUrl = 'https://backend-mitec-api-production.up.railway.app'; // La URL de tu API
 
   constructor(private http: HttpClient) {}
 

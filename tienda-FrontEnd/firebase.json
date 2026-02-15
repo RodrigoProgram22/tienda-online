@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "./dist/tienda-front-end",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",

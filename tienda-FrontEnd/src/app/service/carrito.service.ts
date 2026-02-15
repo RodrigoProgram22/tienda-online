@@ -6,8 +6,8 @@ import { Producto } from '../model/Producto';
   providedIn: 'root',
 })
 export class CarritoService {
-  // private url = 'http://localhost:8080/carrito';
-  private url = 'https://backend-mitec-api-production.up.railway.app/carrito';
+  private url = 'http://localhost:8080/carrito';
+  // private url = 'https://backend-mitec-api-production.up.railway.app/carrito';
 
   constructor(private http: HttpClient) {}
   agregarProducto(idCarrito: number, idProducto: number): Observable<any> {
